@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SenaiRH-G1</name>
+    </assembly>
+    <members>
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.ListarMinhasAtividades(System.Int32)">
+            <summary>
+            Endpoint de listar atividades do usuário
+            </summary>
+            <param name="id">ID do usuário que terá suas atividades listadas</param>
+            <returns>Lista de atividades</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.AssociarAtividade(System.Int32,System.Int32)">
+            <summary>
+            Endpoint de associar um usuário à uma atividade
+            </summary>
+            <param name="idUsuario">ID do usuário que será associado</param>
+            <param name="idAtividade">ID da atividade que será associada</param>
+            <returns>Mensagem de confirmação</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32)">
+            <summary>
+            Endpoint de finalizar uma atividade que está em produção
+            </summary>
+            <param name="idAtividade">ID da atividade que será finalizada</param>
+            <returns>Mensagem de confirmação</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.ValidarAtividade(System.Int32,System.Int32)">
+            <summary>
+            Endpoint de validar uma atividade que foi finalizada pelo usuário, porém, precisa de validação.
+            </summary>
+            <param name="idAtividade">ID da atividae que será validada.</param>
+            <param name="idUsuario">ID do usuario que terá sua atividade validada.</param>
+            <returns>Mensagem de confirmação</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.LoginController.Login(SenaiRH_G1.ViewModel.LoginViewModel)">
+            <summary>
+            Valida o Usuário
+            </summary>
+            <param name="login">Informações de login do usuário</param>
+            <returns>O token do usuário logado</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.SetoresController.GetSetors">
+            <summary>
+            Endpoint que lista os setores
+            </summary>
+            <returns>Lista de setores</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.UsuariosController.BuscarUsuario(System.Int32)">
+            <summary>
+            Endpoint para buscar um usuário pelo ID
+            </summary>
+            <param name="id">ID do usuário que será buscado</param>
+            <returns>Retorna usuário buscado</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.UsuariosController.BuscarUsuarioLogado">
+            <summary>
+            Endpoint para buscar o usuário logado
+            </summary>
+            <returns>O usuário que está logado</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Controllers.UsuariosController.ListarFuncionarios">
+            <summary>
+            Endpoint que lista todos os funcionários 
+            </summary>
+            <returns>Lista de Uusários</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.AtividadeRepository.AssociarAtividade(System.Int32,System.Int32)">
+            <summary>
+            Método para associar um usuário à uma atividade
+            </summary>
+            <param name="idUsuario">ID do usuário que será associado à atividade</param>
+            <param name="idAtividade">ID da atividade a qual o usuário será associado</param>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.AtividadeRepository.ListarMinhas(System.Int32)">
+            <summary>
+            Método para listar as atividades atribuídas ao usuário
+            </summary>
+            <param name="id">ID do usuário que terá suas atividades listadas</param>
+            <returns>Lista de atividades</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.AtividadeRepository.FinalizarAtividade(System.Int32,System.Int32)">
+            <summary>
+            Método para finalizar uma atividade em curso
+            </summary>
+            <param name="idUsuario">ID do usuário que terá sua atividade finalizada</param>
+            <param name="idAtividade">ID da atividade que será finalizada</param>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.AtividadeRepository.ValidarAtividade(System.Int32,System.Int32)">
+            <summary>
+            Método para validar uma atividade que está aguardando validação do administrador
+            </summary>
+            <param name="idAtividade">ID da atividade que será validada</param>
+            <param name="idUsuario">ID do usuário que terá sua atividade validada</param>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.UsuarioRepository.BuscarUsuario(System.Int32)">
+            <summary>
+            Método para Buscar um usuário
+            </summary>
+            <param name="id">ID do Usuário que será buscado</param>
+            <returns>O usuário buscado</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.UsuarioRepository.ListarFuncionarios">
+            <summary>
+            Método para listar todos os funcionarios
+            </summary>
+            <returns>Retorna todos os funcionários cadastrados</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Repositories.UsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método para fazer login no sistema
+            </summary>
+            <param name="Cpf">CPF do usuário que será logado</param>
+            <param name="senha">senha do usuário que será logado</param>
+            <returns>Usuario</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String[])">
+            <summary>
+            Faz o upload do arquivo para o servidor
+            </summary>
+            <param name="arquivo">Arquivo vindo de um formulário</param>
+            <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
+            <returns>Nome do arquivo salvo</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Utils.Upload.ValidarExtensao(System.String[],System.String)">
+            <summary>
+            Valida o uso de enxtensões permitidas apenas
+            </summary>
+            <param name="extensoes">Array de extensões permitidas</param>
+            <param name="nomeDoArquivo">Nome do arquivo</param>
+            <returns>Verdadeiro/Falso</returns>
+        </member>
+        <member name="M:SenaiRH_G1.Utils.Upload.RemoverArquivo(System.String)">
+            <summary>
+            Remove um arquivo do servidor
+            </summary>
+            <param name="nomeDoArquivo">Nome do Arquivo</param>
+        </member>
+        <member name="M:SenaiRH_G1.Utils.Upload.RetornarExtensao(System.String)">
+            <summary>
+            Retorna a extensão de um arquivo
+            </summary>
+            <param name="nomeDoArquivo">Nome do Arquivo</param>
+            <returns>Retorna a extensão de um arquivo</returns>
+        </member>
+    </members>
+</doc>
