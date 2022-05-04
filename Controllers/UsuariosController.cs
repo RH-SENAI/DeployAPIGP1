@@ -250,5 +250,20 @@ namespace SenaiRH_G1.Controllers
                 throw;
             }
         }
+
+        [HttpGet("Ranking")]
+        public IActionResult Ranking()
+        {
+            try
+            {
+                return Ok(_usuarioRepository.Ranking());
+                
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+                throw;
+            }
+        }
     }
 }
