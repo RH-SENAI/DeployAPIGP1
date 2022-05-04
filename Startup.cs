@@ -112,12 +112,7 @@ namespace SenaiRH_G1
 
             app.UseCors("CorsPolicy");
 
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(),"StaticFiles")),
-                RequestPath = "/StaticFiles"
-            });
+            
 
             app.UseAuthentication();
 
