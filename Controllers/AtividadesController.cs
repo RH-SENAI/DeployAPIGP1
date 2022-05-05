@@ -150,7 +150,7 @@ namespace SenaiRH_G1.Controllers
         /// <param name="idAtividade">ID da atividade que será associada</param>
         /// <returns>Mensagem de confirmação</returns>
         [Authorize]
-        [HttpPost("Associar/{idUsuario}")]
+        [HttpPost("Associar/{idUsuario}/{idAtividade}")]
         public IActionResult AssociarAtividade(int idUsuario, int idAtividade)
         {
             try
