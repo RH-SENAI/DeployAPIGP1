@@ -23,29 +23,29 @@ namespace SenaiRH_G1.Repositories
         }
 
         /// <summary>
-        /// Metodo para Buscar um usuário
+        /// Método para Buscar um usuário
         /// </summary>
-        /// <param name="id">ID do Usuário que sera buscado</param>
-        /// <returns>O usuario buscado</returns>
+        /// <param name="id">ID do Usuário que será buscado</param>
+        /// <returns>O usuário buscado</returns>
         public Usuario BuscarUsuario(int id)
         {
             //Instancia novo usuario
             Usuario usuario = new ();
-            //Busca o usuario pelo ID fornecido, salva no usuario instanciado e retorna o usuário
+            //Busca o usuário pelo ID fornecido, salva no usuario instânciado e retorna o usuário
             return usuario = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
         }
 
         /// <summary>
-        /// Metodo para listar todos os funcionarios
+        /// Método para listar todos os funcionarios
         /// </summary>
         /// <returns>Retorna todos os funcionários cadastrados</returns>
         public List<Usuario> ListarFuncionarios()
         {
-            //Busca todos os usuarios do sistema que
+            //Busca todos os usuários do sistema que
            return ctx.Usuarios
                 //IdTipoUsuario seja igual ao de funcionario
                 .Where(u => u.IdTipoUsuario == 1)
-                //Seleciona os dados que serao enviados na resposta
+                //Seleciona os dados que serão enviados na resposta
                 .Select(u => new Usuario()
                 {
                     IdUsuario = u.IdUsuario,
@@ -65,25 +65,25 @@ namespace SenaiRH_G1.Repositories
         }
 
         /// <summary>
-        /// Metodo para fazer login no sistema
+        /// Método para fazer login no sistema
         /// </summary>
-        /// <param name="Cpf">CPF do usuário que sera logado</param>
-        /// <param name="senha">senha do usuário que sera logado</param>
+        /// <param name="Cpf">CPF do usuário que será logado</param>
+        /// <param name="senha">senha do usuário que será logado</param>
         /// <returns>Usuario</returns>
         public Usuario Login(string Cpf, string senha)
         {
-            //Busca usuario pelo email
+            //Busca usuário pelo email
             var usuario = ctx.Usuarios.FirstOrDefault(u => u.Cpf == Cpf);
 
-            //Caso o usuario seja valido
+            //Caso o usuário seja válido
             if (usuario != null)
             {
-                //Verifica se a senha do usuario cadastrado no banco de dados a uma hash
+                //Verifica se a senha do usuário cadastrado no banco de dados é uma hash
 
-                //Caso nao seja uma Hash
+                //Caso não seja uma Hash
                 if (usuario.Senha.Length != 60 && usuario.Senha[0].ToString() != "$")
                 {
-                    //Verifica se a senha digitada e correta
+                    //Verifica se a senha digitada é correta
                     //Caso seja correta
                     if (senha == usuario.Senha)
                     {
@@ -92,10 +92,10 @@ namespace SenaiRH_G1.Repositories
                         string senhaHash = Criptografia.GerarHash(usuario.Senha);
                         //Altera a senha no banco de dados
                         usuario.Senha = senhaHash;
-                        //Salva a alteracao
+                        //Salva a alteração
                         ctx.Usuarios.Update(usuario);
                         ctx.SaveChanges();
-                        //Retorna o usuario
+                        //Retorna o usuário
                         return usuario;
                     }
                     //Caso seja incorreta
@@ -107,12 +107,12 @@ namespace SenaiRH_G1.Repositories
                 }
                 //Caso seja uma Hash, Compara as senha e compara as senha
                 bool confere = Criptografia.CompararSenha(senha, usuario.Senha);
-                //Caso sejam compativeis
+                //Caso sejam compatíveis
                 if (confere)
                     //Retorna o Usuário
                     return usuario;
             }
-            //Caso nao seja valido, retorna nulo
+            //Caso não seja válido, retorna nulo
             return null;
         }
 
@@ -216,31 +216,6 @@ namespace SenaiRH_G1.Repositories
                 return false;
             }
             return false;
-        }
-
-        public List<Usuario> Ranking()
-        {
-            return ctx.Usuarios
-                //IdTipoUsuario seja igual ao de funcionario
-                .Where(u => u.IdTipoUsuario == 1)
-                .OrderByDescending(u => u.Trofeus)
-                //Seleciona os dados que serao enviados na resposta
-                .Select(u => new Usuario()
-                {
-                    IdUsuario = u.IdUsuario,
-                    Nome = u.Nome,
-                    Email = u.Email,
-                    DataNascimento = u.DataNascimento,
-                    SaldoMoeda = u.SaldoMoeda,
-                    Trofeus = u.Trofeus,
-                    IdUnidadeSenai = u.IdUnidadeSenai,
-                    IdUnidadeSenaiNavigation = new Unidadesenai()
-                    {
-                        NomeUnidadeSenai = u.IdUnidadeSenaiNavigation.NomeUnidadeSenai,
-                        TelefoneUnidadeSenai = u.IdUnidadeSenaiNavigation.TelefoneUnidadeSenai,
-                        EmailUnidadeSenai = u.IdUnidadeSenaiNavigation.EmailUnidadeSenai
-                    }
-                }).ToList();
         }
     }
 }

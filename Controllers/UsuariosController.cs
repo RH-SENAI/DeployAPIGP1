@@ -23,10 +23,10 @@ namespace SenaiRH_G1.Controllers
         }
 
         /// <summary>
-        /// Endpoint para buscar um usuario pelo ID
+        /// Endpoint para buscar um usuário pelo ID
         /// </summary>
-        /// <param name="id">ID do usuario que sera buscado</param>
-        /// <returns>Retorna usuario buscado</returns>
+        /// <param name="id">ID do usuário que será buscado</param>
+        /// <returns>Retorna usuário buscado</returns>
         [HttpGet("BuscarUsuario/{id}")]
         public IActionResult BuscarUsuario(int id)
         {
@@ -37,14 +37,14 @@ namespace SenaiRH_G1.Controllers
                 {
                     //Busca o usuário pelo ID
                     Usuario usuario = _usuarioRepository.BuscarUsuario(id);
-                    //Caso nao haja um usuario com o mesmo ID
+                    //Caso não haja um usuário com o mesmo ID
                     if(usuario == null) 
                         //Retorna NotFound
                         return NotFound(new
                         {
                             Mensagem = "O ID não corresponde a nenhum funcionário"
                         });
-                    //Caso haja, retorna o usuario
+                    //Caso haja, retorna o usuário
                     return Ok(usuario);
                 }
                 return BadRequest(new
@@ -52,7 +52,7 @@ namespace SenaiRH_G1.Controllers
                     Mensagem = "Id informado é inválido"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -61,30 +61,30 @@ namespace SenaiRH_G1.Controllers
         }
 
         /// <summary>
-        /// Endpoint para buscar o usuario logado
+        /// Endpoint para buscar o usuário logado
         /// </summary>
-        /// <returns>O usuário que esta logado</returns>
+        /// <returns>O usuário que está logado</returns>
         [Authorize]
         [HttpGet("BuscarUsuario")]
         public IActionResult BuscarUsuarioLogado()
         {
             try
             {
-                //Recebe o ID do usuario logado
+                //Recebe o ID do usuário logado
                 int id = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Jti).Value);
                 //Caso o ID seja maior que 0
                 if (id > 0)
                 {
-                    //Busca o usuario pelo ID
+                    //Busca o usuário pelo ID
                     Usuario usuario = _usuarioRepository.BuscarUsuario(id);
-                    //Caso nao haja um usuario com o mesmo ID
+                    //Caso não haja um usuário com o mesmo ID
                     if (usuario == null)
                         //Retorna NotFound
                         return NotFound(new
                         {
                             Mensagem = "O ID não corresponde a nenhum funcionário"
                         });
-                    //Caso haja, retorna o usuario
+                    //Caso haja, retorna o usuário
                     return Ok(usuario);
                 }
                 return BadRequest(new
@@ -92,7 +92,7 @@ namespace SenaiRH_G1.Controllers
                     Mensagem = "Id informado é inválido"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -101,15 +101,15 @@ namespace SenaiRH_G1.Controllers
         }
 
         /// <summary>
-        /// Endpoint que lista todos os funcionarios 
+        /// Endpoint que lista todos os funcionários 
         /// </summary>
-        /// <returns>Lista de Usuarios</returns>
+        /// <returns>Lista de Uusários</returns>
         [HttpGet("Funcionarios")]
         public IActionResult ListarFuncionarios()
         {
             try
             {
-                //Instância uma lista de usuarios e preenche com funcionarios
+                //Instância uma lista de usuários e preenche com funcionarios
                 List<Usuario> lista = _usuarioRepository.ListarFuncionarios();
 
                 if (lista == null)
@@ -119,7 +119,7 @@ namespace SenaiRH_G1.Controllers
                     });
                 return Ok(lista);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -180,8 +180,8 @@ namespace SenaiRH_G1.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest(ex);
                 throw;
+                return BadRequest(ex);
             }
         }
 
@@ -246,23 +246,8 @@ namespace SenaiRH_G1.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest(ex);
                 throw;
-            }
-        }
-
-        [HttpGet("Ranking")]
-        public IActionResult Ranking()
-        {
-            try
-            {
-                return Ok(_usuarioRepository.Ranking());
-                
-            }
-            catch (Exception ex)
-            {
                 return BadRequest(ex);
-                throw;
             }
         }
     }

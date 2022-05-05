@@ -26,10 +26,10 @@ namespace SenaiRH_G1.Controllers
         }
 
         /// <summary>
-        /// Valida o Usuario
+        /// Valida o Usuário
         /// </summary>
-        /// <param name="login">Informações de login do usuario</param>
-        /// <returns>O token do usuario logado</returns>
+        /// <param name="login">Informações de login do usuário</param>
+        /// <returns>O token do usuário logado</returns>
         [HttpPost]
         public IActionResult Login(LoginViewModel login)
         {
@@ -45,12 +45,12 @@ namespace SenaiRH_G1.Controllers
                     });
                 }
 
-                // Caso o usuario seja encontrado, prossegue para a criação do token
+                // Caso o usuário seja encontrado, prossegue para a criação do token
 
                 /*
                     Dependências
                     Criar e validar o JWT:      System.IdentityModel.Tokens.Jwt
-                    Integrar a autenticacaoo:    Microsoft.AspNetCore.Authentication.JwtBearer (versão compatível com o .NET do projeto)
+                    Integrar a autenticação:    Microsoft.AspNetCore.Authentication.JwtBearer (versão compatível com o .NET do projeto)
                 */
 
                 var minhasClaims = new[]
