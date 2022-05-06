@@ -115,6 +115,7 @@ namespace SenaiRH_G1.Repositories
                     DescricaoAtividade = a.DescricaoAtividade,
                     NecessarioValidar = a.NecessarioValidar,
                     DataCriacao = a.DataCriacao,
+                    Obrigatorio = a.Obrigatorio,
                     IdGestorCadastroNavigation = new Usuario()
                     {
                         Nome = a.IdGestorCadastroNavigation.Nome
@@ -220,6 +221,54 @@ namespace SenaiRH_G1.Repositories
                     ctx.SaveChanges();
                 }
             }
+        }
+
+        public List<Atividade> ListarObrigatorias()
+        {
+            return ctx.Atividades
+                .Select(a => new Atividade()
+                {
+                    IdAtividade = a.IdAtividade,
+                    NomeAtividade = a.NomeAtividade,
+                    DataInicio = a.DataInicio,
+                    DataConclusao = a.DataConclusao,
+                    RecompensaMoeda = a.RecompensaMoeda,
+                    RecompensaTrofeu = a.RecompensaTrofeu,
+                    DescricaoAtividade = a.DescricaoAtividade,
+                    NecessarioValidar = a.NecessarioValidar,
+                    DataCriacao = a.DataCriacao,
+                    Obrigatorio = a.Obrigatorio,
+                    IdGestorCadastroNavigation = new Usuario()
+                    {
+                        Nome = a.IdGestorCadastroNavigation.Nome
+                    }
+                })
+                .Where(a => a.Obrigatorio == true)
+                .ToList();
+        }
+
+        public List<Atividade> ListarExtras()
+        {
+            return ctx.Atividades
+                .Select(a => new Atividade()
+                {
+                    IdAtividade = a.IdAtividade,
+                    NomeAtividade = a.NomeAtividade,
+                    DataInicio = a.DataInicio,
+                    DataConclusao = a.DataConclusao,
+                    RecompensaMoeda = a.RecompensaMoeda,
+                    RecompensaTrofeu = a.RecompensaTrofeu,
+                    DescricaoAtividade = a.DescricaoAtividade,
+                    NecessarioValidar = a.NecessarioValidar,
+                    DataCriacao = a.DataCriacao,
+                    Obrigatorio = a.Obrigatorio,
+                    IdGestorCadastroNavigation = new Usuario()
+                    {
+                        Nome = a.IdGestorCadastroNavigation.Nome
+                    }
+                })
+                .Where(a => a.Obrigatorio == false)
+                .ToList();
         }
     }
 }

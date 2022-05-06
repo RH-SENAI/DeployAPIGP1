@@ -7,23 +7,6 @@
 
   <ItemGroup>
 
-    <Compile Remove="StaticFiles\NovaPasta\**" />
-    <Content Remove="StaticFiles\NovaPasta\**" />
-    <EmbeddedResource Remove="StaticFiles\NovaPasta\**" />
-    <None Remove="StaticFiles\NovaPasta\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="StaticFiles\Images\Class.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="StaticFiles\Images\" />
-
-  </ItemGroup>
-
-  <ItemGroup>
-
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 
     <PackageReference Include="MailKit" Version="3.2.0" />
@@ -40,10 +23,6 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="StaticFiles\Images\" />
   </ItemGroup>
 
 	<PropertyGroup>

@@ -47,6 +47,40 @@ namespace SenaiRH_G1.Controllers
             }
         }
 
+        [HttpGet("ListarObrigatorias/")]
+        public IActionResult GetAtividadesObrigatorias()
+        {
+            try
+            {
+                List<Atividade> listaAtividade = _atividadeRepository.ListarObrigatorias();
+
+                return Ok(listaAtividade);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("ListarExtras/")]
+        public IActionResult GetAtividadesExtras()
+        {
+            try
+            {
+                List<Atividade> listaAtividade = _atividadeRepository.ListarExtras();
+
+                return Ok(listaAtividade);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<Atividade>>> BuscarPorId(int id)
         {
