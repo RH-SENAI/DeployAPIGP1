@@ -177,6 +177,38 @@ namespace SenaiRH_G1.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet("MinhasAtividadeExtra/{id}")]
+        public IActionResult ListarMinhasAtividadesExtras(int id)
+        {
+            try
+            {
+                //Busca usuário pelo ID fornecido
+                Usuario usuario = _context.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
+
+                //Verifica se o usuário é válido
+                if (usuario != null)
+                {
+                    //Caso seja, retorna status code 200 com a lista de atividade.
+                    return Ok(_atividadeRepository.ListarMinhasExtras(id));
+                }
+                //Caso não seja
+                else
+                {
+                    //Retorna status code 400 com mensagem de erro
+                    return BadRequest(new
+                    {
+                        Mensagem = "O ID inserido é inválido!"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
         /// <summary>
         /// Endpoint de associar um usuário à uma atividade
         /// </summary>
