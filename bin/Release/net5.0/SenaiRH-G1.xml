@@ -18,6 +18,7 @@
             <param name="idUsuario">ID do usuário que será associado</param>
             <param name="idAtividade">ID da atividade que será associada</param>
             <returns>Mensagem de confirmação</returns>
+            [Authorize]
         </member>
         <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32)">
             <summary>
