@@ -47,6 +47,23 @@ namespace SenaiRH_G1.Controllers
             }
         }
 
+        [HttpGet("ListarUltima/")]
+        public IActionResult GetUltimaAtividade()
+        {
+            try
+            {
+                Atividade listaAtividade = _atividadeRepository.BuscarUltima();
+
+                return Ok(listaAtividade);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         [HttpGet("ListarObrigatorias/")]
         public IActionResult GetAtividadesObrigatorias()
         {
@@ -183,7 +200,7 @@ namespace SenaiRH_G1.Controllers
         /// <param name="idUsuario">ID do usuário que será associado</param>
         /// <param name="idAtividade">ID da atividade que será associada</param>
         /// <returns>Mensagem de confirmação</returns>
-        [Authorize]
+        /// [Authorize]
         [HttpPost("Associar/{idUsuario}/{idAtividade}")]
         public IActionResult AssociarAtividade(int idUsuario, int idAtividade)
         {
