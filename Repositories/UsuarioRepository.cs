@@ -175,7 +175,7 @@ namespace SenaiRH_G1.Repositories
             if (user != null)
             {
                 MimeMessage message = new MimeMessage();
-                message.From.Add(new MailboxAddress(user.Nome, user.Email));
+                message.From.Add(new MailboxAddress("SenaiRHTeste", "senairhteste@gmail.com"));
                 message.To.Add(MailboxAddress.Parse(user.Email));
                 message.Subject = "Teste email";
                 message.Body = new TextPart("plain")
@@ -188,7 +188,7 @@ namespace SenaiRH_G1.Repositories
                 try
                 {
                     client.Connect("smtp.gmail.com", 465, true);
-                    client.Authenticate(user.Email, "SesiSenai@132");
+                    client.Authenticate("senairhteste@gmail.com", "SesiSenai@132");
                     client.Send(message);
                 }
                 catch (Exception)
