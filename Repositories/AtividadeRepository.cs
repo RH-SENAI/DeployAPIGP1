@@ -297,5 +297,11 @@ namespace SenaiRH_G1.Repositories
                 .Where(a => a.Obrigatorio == false)
                 .ToList();
         }
+
+        public Atividade BuscarUltima()
+        {
+            List<Atividade> ronaldo = ListarTodas();
+            return ronaldo.LastOrDefault();
+        }
     }
 }

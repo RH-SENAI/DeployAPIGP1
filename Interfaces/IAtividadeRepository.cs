@@ -12,6 +12,7 @@ namespace SenaiRH_G1.Interfaces
         void CadastrarAtividade(Atividade atividade);
         void RemoverAtividade(Atividade atividade);
         Atividade BuscarPorId(int id);
+        Atividade BuscarUltima();
         List<Atividade> ListarTodas();
         List<Atividade> ListarObrigatorias();
         List<Atividade> ListarExtras();
