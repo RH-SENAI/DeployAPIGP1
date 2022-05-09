@@ -13,6 +13,8 @@ namespace SenaiRH_G1.Interfaces
         void RemoverAtividade(Atividade atividade);
         Atividade BuscarPorId(int id);
         List<Atividade> ListarTodas();
+        List<Atividade> ListarObrigatorias();
+        List<Atividade> ListarExtras();
         List<MinhasAtividadesViewModel> ListarMinhas(int id);
         List<MinhasAtividadesViewModel> ListaValidar();
 

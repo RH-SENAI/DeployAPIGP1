@@ -11,6 +11,7 @@ namespace SenaiRH_G1.Domains
         {
             Cursos = new HashSet<Curso>();
             Minhasatividades = new HashSet<Minhasatividade>();
+            Registrocursos = new HashSet<Registrocurso>();
         }
 
         public byte IdSituacaoAtividade { get; set; }
@@ -18,5 +19,6 @@ namespace SenaiRH_G1.Domains
 
         public virtual ICollection<Curso> Cursos { get; set; }
         public virtual ICollection<Minhasatividade> Minhasatividades { get; set; }
+        public virtual ICollection<Registrocurso> Registrocursos { get; set; }
     }
 }

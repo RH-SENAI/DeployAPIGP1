@@ -40,6 +40,7 @@ namespace SenaiRH_G1.Domains
         public string LocalizacaoUsuario { get; set; }
         public string CaminhoFotoPerfil { get; set; }
         public bool? UsuarioAtivo { get; set; }
+        public decimal? NotaProdutividade { get; set; }
 
         public virtual Cargo IdCargoNavigation { get; set; }
         public virtual Tipousuario IdTipoUsuarioNavigation { get; set; }
