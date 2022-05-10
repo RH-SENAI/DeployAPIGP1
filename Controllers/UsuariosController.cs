@@ -64,7 +64,7 @@ namespace SenaiRH_G1.Controllers
         /// Endpoint para buscar o usuário logado
         /// </summary>
         /// <returns>O usuário que está logado</returns>
-        [Authorize]
+        //[Authorize]
         [HttpGet("BuscarUsuario")]
         public IActionResult BuscarUsuarioLogado()
         {

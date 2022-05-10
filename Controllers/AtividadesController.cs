@@ -107,7 +107,7 @@ namespace SenaiRH_G1.Controllers
 
         }
 
-        [Authorize(Roles = "2")]
+        //[Authorize(Roles = "2")]
         [HttpPost]
         public IActionResult PostAtividade(Atividade atividade)
         {
@@ -139,7 +139,7 @@ namespace SenaiRH_G1.Controllers
 
         }
 
-        [Authorize(Roles = "2")]
+        //[Authorize(Roles = "2")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEquipamento(int id)
         {
@@ -160,7 +160,7 @@ namespace SenaiRH_G1.Controllers
         /// </summary>
         /// <param name="id">ID do usuário que terá suas atividades listadas</param>
         /// <returns>Lista de atividades</returns>
-        [Authorize]
+        //[Authorize]
         [HttpGet("MinhasAtividade/{id}")]
         public IActionResult ListarMinhasAtividades(int id)
         {
@@ -192,7 +192,7 @@ namespace SenaiRH_G1.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("MinhasAtividadeExtra/{id}")]
         public IActionResult ListarMinhasAtividadesExtras(int id)
         {
@@ -276,7 +276,7 @@ namespace SenaiRH_G1.Controllers
         /// </summary>
         /// <param name="idAtividade">ID da atividade que será finalizada</param>
         /// <returns>Mensagem de confirmação</returns>
-        [Authorize]
+        //[Authorize]
         [HttpPatch("FinalizarAtividade/{idAtividade}")]
         public IActionResult FinalizarAtividade(int idAtividade)
         {
