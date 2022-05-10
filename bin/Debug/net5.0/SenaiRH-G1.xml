@@ -18,6 +18,7 @@
             <param name="idUsuario">ID do usuário que será associado</param>
             <param name="idAtividade">ID da atividade que será associada</param>
             <returns>Mensagem de confirmação</returns>
+            [Authorize]
         </member>
         <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32)">
             <summary>
@@ -115,12 +116,11 @@
             <param name="senha">senha do usuário que será logado</param>
             <returns>Usuario</returns>
         </member>
-        <member name="M:SenaiRH_G1.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String[])">
+        <member name="M:SenaiRH_G1.Utils.Upload.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             Faz o upload do arquivo para o servidor
             </summary>
             <param name="arquivo">Arquivo vindo de um formulário</param>
-            <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
             <returns>Nome do arquivo salvo</returns>
         </member>
         <member name="M:SenaiRH_G1.Utils.Upload.ValidarExtensao(System.String[],System.String)">
@@ -136,6 +136,14 @@
             Remove um arquivo do servidor
             </summary>
             <param name="nomeDoArquivo">Nome do Arquivo</param>
+        </member>
+        <member name="M:SenaiRH_G1.Utils.Upload.AtualizarFoto(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Atualiza a foto de perfil
+            </summary>
+            <param name="nomeFotoAntiga">Nome da foto antiga</param>
+            <param name="novaFoto">Arquivo da nova foto</param>
+            <returns>O nome da nova foto</returns>
         </member>
         <member name="M:SenaiRH_G1.Utils.Upload.RetornarExtensao(System.String)">
             <summary>

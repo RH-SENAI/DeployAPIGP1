@@ -22,7 +22,8 @@ namespace SenaiRH_G1.Domains
         public bool NecessarioValidar { get; set; }
         public DateTime DataCriacao { get; set; }
         public int? IdGestorCadastro { get; set; }
-        public bool Obrigatorio { get; set; }
+        public bool? Obrigatorio { get; set; }
+        public bool? Equipe { get; set; }
 
         public virtual Usuario IdGestorCadastroNavigation { get; set; }
         public virtual ICollection<Minhasatividade> Minhasatividades { get; set; }
