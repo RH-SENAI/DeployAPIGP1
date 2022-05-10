@@ -40,10 +40,9 @@ namespace SenaiRH_G1.Controllers
                 return Ok(listaAtividade);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(ex);
             }
         }
 
@@ -57,10 +56,10 @@ namespace SenaiRH_G1.Controllers
                 return Ok(listaAtividade);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                return BadRequest(ex);
             }
         }
 
@@ -74,10 +73,10 @@ namespace SenaiRH_G1.Controllers
                 return Ok(listaAtividade);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                return BadRequest(ex);
             }
         }
 
@@ -91,10 +90,9 @@ namespace SenaiRH_G1.Controllers
                 return Ok(listaAtividade);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(ex);
             }
         }
 
