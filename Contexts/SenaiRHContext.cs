@@ -86,6 +86,8 @@ namespace SenaiRH_G1.Contexts
                     .IsUnicode(false)
                     .HasColumnName("descricaoAtividade");
 
+                entity.Property(e => e.Equipe).HasColumnName("equipe");
+
                 entity.Property(e => e.IdGestorCadastro).HasColumnName("idGestorCadastro");
 
                 entity.Property(e => e.NecessarioValidar).HasColumnName("necessarioValidar");
@@ -155,17 +157,13 @@ namespace SenaiRH_G1.Contexts
 
                 entity.Property(e => e.IdAvaliacaoUsuario).HasColumnName("idAvaliacaoUsuario");
 
-                entity.Property(e => e.AvaliacaoUsuario1)
-                    .IsRequired()
-                    .HasMaxLength(256)
-                    .IsUnicode(false)
-                    .HasColumnName("avaliacaoUsuario");
+                entity.Property(e => e.Avaliacao)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("avaliacao");
 
                 entity.Property(e => e.IdUsuarioAvaliado).HasColumnName("idUsuarioAvaliado");
 
                 entity.Property(e => e.IdUsuarioAvaliador).HasColumnName("idUsuarioAvaliador");
-
-                entity.Property(e => e.ValorMoedas).HasColumnName("valorMoedas");
 
                 entity.HasOne(d => d.IdUsuarioAvaliadoNavigation)
                     .WithMany(p => p.AvaliacaousuarioIdUsuarioAvaliadoNavigations)
@@ -1009,6 +1007,10 @@ namespace SenaiRH_G1.Contexts
                     .HasMaxLength(256)
                     .IsUnicode(false)
                     .HasColumnName("localizacaoUsuario");
+
+                entity.Property(e => e.MediaAvaliacao)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("mediaAvaliacao");
 
                 entity.Property(e => e.NivelSatisfacao)
                     .HasColumnType("decimal(2, 1)")
