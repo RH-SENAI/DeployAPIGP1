@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SenaiRH_G1.Domains;
+using System;
 
 namespace SenaiRH_G1.ViewModel
 {
@@ -13,7 +14,7 @@ namespace SenaiRH_G1.ViewModel
         public int RecompensaTrofeu { get; set; }
         public string DescricaoAtividade { get; set; }
         public bool NecessarioValidar { get; set; }
-
+        public string criador { get; set; }
         public int IdMinhasAtividades { get; set; }
         public byte IdSituacaoAtividade { get; set; }
         public byte IdSetor { get; set; }

@@ -90,6 +90,7 @@ namespace SenaiRH_G1.Repositories
                                            RecompensaMoeda = atividades.RecompensaMoeda,
                                            RecompensaTrofeu = atividades.RecompensaTrofeu,
                                            NecessarioValidar = atividades.NecessarioValidar,
+                                           criador = atividades.IdGestorCadastroNavigation.Nome,
                                            IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
                                            IdSetor = minhasAtividades.IdSetor,
                                            IdUsuario = minhasAtividades.IdUsuario,
