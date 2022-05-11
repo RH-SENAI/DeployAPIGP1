@@ -54,9 +54,30 @@ namespace SenaiRH_G1.Repositories
            
         }
 
-        public Atividade BuscarPorId(int id)
+        public List<MinhasAtividadesViewModel> BuscarPorId(int id)
         {
-            return ctx.Atividades.FirstOrDefault(c => c.IdAtividade == id);
+
+            var listaMinhasAtividade = from atividades in ctx.Atividades
+                                       where atividades.IdAtividade == id
+                                       select new MinhasAtividadesViewModel
+                                       {
+                                           IdAtividade = atividades.IdAtividade,
+                                           NomeAtividade = atividades.NomeAtividade,
+                                           DataInicio = atividades.DataInicio,
+                                           DataCriacao = atividades.DataCriacao,
+                                           DataConclusao = atividades.DataConclusao,
+                                           DescricaoAtividade = atividades.DescricaoAtividade,
+                                           RecompensaMoeda = atividades.RecompensaMoeda,
+                                           RecompensaTrofeu = atividades.RecompensaTrofeu,
+                                           NecessarioValidar = atividades.NecessarioValidar,
+                                           criador = atividades.IdGestorCadastroNavigation.Nome,
+                                           
+                                       };
+
+
+            return listaMinhasAtividade.ToList();
+
+            
         }
 
         public void CadastrarAtividade(Atividade atividade)

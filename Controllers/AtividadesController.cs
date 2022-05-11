@@ -6,6 +6,7 @@ using SenaiRH_G1.Contexts;
 using SenaiRH_G1.Domains;
 using SenaiRH_G1.Interfaces;
 using SenaiRH_G1.Repositories;
+using SenaiRH_G1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -97,9 +98,10 @@ namespace SenaiRH_G1.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<Atividade>>> BuscarPorId(int id)
+        public IActionResult BuscarPorId(int id)
         {
-            Atividade atividade = _context.Atividades.FirstOrDefault(u => u.IdAtividade == id);
+            List<MinhasAtividadesViewModel> atividade = _atividadeRepository.BuscarPorId(id);
+            
             return StatusCode(200, new
             {
                 atividade
