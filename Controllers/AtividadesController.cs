@@ -100,7 +100,7 @@ namespace SenaiRH_G1.Controllers
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
-            List<MinhasAtividadesViewModel> atividade = _atividadeRepository.BuscarPorId(id);
+            MinhasAtividadesViewModel atividade = _atividadeRepository.BuscarPorId(id);
             
             return StatusCode(200, new
             {

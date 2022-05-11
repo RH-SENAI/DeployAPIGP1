@@ -54,7 +54,7 @@ namespace SenaiRH_G1.Repositories
            
         }
 
-        public List<MinhasAtividadesViewModel> BuscarPorId(int id)
+        public MinhasAtividadesViewModel BuscarPorId(int id)
         {
 
             var listaMinhasAtividade = from atividades in ctx.Atividades
@@ -75,7 +75,7 @@ namespace SenaiRH_G1.Repositories
                                        };
 
 
-            return listaMinhasAtividade.ToList();
+            return listaMinhasAtividade.ToList()[0];
 
             
         }

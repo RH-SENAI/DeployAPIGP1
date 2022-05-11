@@ -11,7 +11,7 @@ namespace SenaiRH_G1.Interfaces
     {
         void CadastrarAtividade(Atividade atividade);
         void RemoverAtividade(Atividade atividade);
-        List<MinhasAtividadesViewModel> BuscarPorId(int id);
+        MinhasAtividadesViewModel BuscarPorId(int id);
         Atividade BuscarUltima();
         List<Atividade> ListarTodas();
         List<Atividade> ListarObrigatorias();
