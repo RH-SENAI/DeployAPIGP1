@@ -60,6 +60,11 @@ namespace SenaiRH_G1.Repositories
                         NomeUnidadeSenai = u.IdUnidadeSenaiNavigation.NomeUnidadeSenai,
                         TelefoneUnidadeSenai = u.IdUnidadeSenaiNavigation.TelefoneUnidadeSenai,
                         EmailUnidadeSenai = u.IdUnidadeSenaiNavigation.EmailUnidadeSenai
+                    },
+                    IdCargoNavigation = new Cargo()
+                    {
+                        NomeCargo = u.IdCargoNavigation.NomeCargo,
+                        IdCargo = u.IdCargoNavigation.IdCargo
                     }
                 }).ToList();
         }
