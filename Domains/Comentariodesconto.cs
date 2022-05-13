@@ -10,6 +10,9 @@ namespace SenaiRH_G1.Domains
         public int IdComentarioDesconto { get; set; }
         public int IdDesconto { get; set; }
         public int IdUsuario { get; set; }
+        public decimal Positivo { get; set; }
+        public decimal Negativo { get; set; }
+        public decimal Neutro { get; set; }
         public decimal AvaliacaoDesconto { get; set; }
         public string ComentarioDesconto1 { get; set; }
 

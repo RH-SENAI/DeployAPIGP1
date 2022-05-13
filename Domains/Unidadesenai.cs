@@ -14,7 +14,7 @@ namespace SenaiRH_G1.Domains
         }
 
         public int IdUnidadeSenai { get; set; }
-        public int? IdLocalizacao { get; set; }
+        public int IdLocalizacao { get; set; }
         public string NomeUnidadeSenai { get; set; }
         public decimal MediaAvaliacaoUnidadeSenai { get; set; }
         public decimal MediaSatisfacaoUnidadeSenai { get; set; }
