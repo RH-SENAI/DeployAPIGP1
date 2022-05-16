@@ -39,7 +39,6 @@ namespace SenaiRH_G1.Domains
         public string Cpf { get; set; }
         public int SaldoMoeda { get; set; }
         public int Trofeus { get; set; }
-        public string LocalizacaoUsuario { get; set; }
         public string CaminhoFotoPerfil { get; set; }
         public bool? UsuarioAtivo { get; set; }
         public decimal? NotaProdutividade { get; set; }

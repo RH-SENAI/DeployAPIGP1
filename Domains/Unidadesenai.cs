@@ -17,10 +17,12 @@ namespace SenaiRH_G1.Domains
         public int IdLocalizacao { get; set; }
         public string NomeUnidadeSenai { get; set; }
         public decimal MediaAvaliacaoUnidadeSenai { get; set; }
-        public decimal MediaSatisfacaoUnidadeSenai { get; set; }
         public string TelefoneUnidadeSenai { get; set; }
         public string EmailUnidadeSenai { get; set; }
         public decimal? NotaProdutividade { get; set; }
+        public decimal Positive { get; set; }
+        public decimal Negativo { get; set; }
+        public decimal Neutro { get; set; }
 
         public virtual Localizacao IdLocalizacaoNavigation { get; set; }
         public virtual ICollection<Avaliacaounidadesenai> Avaliacaounidadesenais { get; set; }
