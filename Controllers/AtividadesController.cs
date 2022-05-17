@@ -417,18 +417,39 @@ namespace SenaiRH_G1.Controllers
             }
 
         }
-            [HttpGet("ListaValidar")]
-            public IActionResult ListaValidar()
+        [HttpGet("ListaValidar")]
+        public IActionResult ListaValidar()
+        {
+            try
             {
-                try
-                {
-                    return Ok(_atividadeRepository.ListaValidar());
-                }
-                catch (Exception ex)
-                {
-
-                    return BadRequest(ex);
-                }
+                return Ok(_atividadeRepository.ListaValidar());
             }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+        [HttpPatch("RecusarAtividade/{idMinhasAtividades}")]
+        public IActionResult RecusarAtividade(int idMinhasAtividades)
+        {
+            try
+            {
+                if (idMinhasAtividades > 0)
+                {
+                    _atividadeRepository.RecusarAtividade(idMinhasAtividades);
+                    return Ok();
+                };
+                return BadRequest(new
+                {
+                    Mensagem = "O id inserido é inválido"
+                });
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
     }
 }

@@ -325,5 +325,26 @@ namespace SenaiRH_G1.Repositories
             List<Atividade> ronaldo = ListarTodas();
             return ronaldo.LastOrDefault();
         }
+
+        public void RecusarAtividade(int idMinhasAtividades)
+        {
+            Minhasatividade minhaAtividade = ctx.Minhasatividades.FirstOrDefault(a => a.IdMinhasAtividades == id);
+            
+            Usuario usuario = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == minhaAtividade.IdUsuario);
+
+            //Verificação se existe a relação entre usuário e atividade
+            if (minhaAtividade != null)
+            {                   
+                                    
+                    //A situação da atividade será alterada para "Em produção" e as recompensas da atividade serão atribuídas ao usuário
+                    minhaAtividade.IdSituacaoAtividade = 3;
+                                      
+                    ctx.Minhasatividades.Update(minhaAtividade);
+                    
+                    ctx.SaveChanges();
+                
+
+            }
+        }
     }
 }
