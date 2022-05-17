@@ -62,7 +62,7 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Atividade>(entity =>
             {
                 entity.HasKey(e => e.IdAtividade)
-                    .HasName("PK__ATIVIDAD__E6E8EAE2F3C8506D");
+                    .HasName("PK__ATIVIDAD__E6E8EAE2CA074861");
 
                 entity.ToTable("ATIVIDADE");
 
@@ -107,13 +107,13 @@ namespace SenaiRH_G1.Contexts
                 entity.HasOne(d => d.IdGestorCadastroNavigation)
                     .WithMany(p => p.Atividades)
                     .HasForeignKey(d => d.IdGestorCadastro)
-                    .HasConstraintName("FK__ATIVIDADE__idGes__3F115E1A");
+                    .HasConstraintName("FK__ATIVIDADE__idGes__093F5D4E");
             });
 
             modelBuilder.Entity<Avaliacaounidadesenai>(entity =>
             {
                 entity.HasKey(e => e.IdAvalicaoUnidadeSenai)
-                    .HasName("PK__AVALIACA__BA46550F44F06E02");
+                    .HasName("PK__AVALIACA__BA46550F6001E604");
 
                 entity.ToTable("AVALIACAOUNIDADESENAI");
 
@@ -139,19 +139,19 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Avaliacaounidadesenais)
                     .HasForeignKey(d => d.IdUnidadeSenai)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__AVALIACAO__idUni__07C12930");
+                    .HasConstraintName("FK__AVALIACAO__idUni__0A338187");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Avaliacaounidadesenais)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__AVALIACAO__idUsu__08B54D69");
+                    .HasConstraintName("FK__AVALIACAO__idUsu__0B27A5C0");
             });
 
             modelBuilder.Entity<Avaliacaousuario>(entity =>
             {
                 entity.HasKey(e => e.IdAvaliacaoUsuario)
-                    .HasName("PK__AVALIACA__08B8D28568CC1CE5");
+                    .HasName("PK__AVALIACA__08B8D2857B5FF132");
 
                 entity.ToTable("AVALIACAOUSUARIO");
 
@@ -169,23 +169,23 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.AvaliacaousuarioIdUsuarioAvaliadoNavigations)
                     .HasForeignKey(d => d.IdUsuarioAvaliado)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__AVALIACAO__idUsu__1BC821DD");
+                    .HasConstraintName("FK__AVALIACAO__idUsu__0C1BC9F9");
 
                 entity.HasOne(d => d.IdUsuarioAvaliadorNavigation)
                     .WithMany(p => p.AvaliacaousuarioIdUsuarioAvaliadorNavigations)
                     .HasForeignKey(d => d.IdUsuarioAvaliador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__AVALIACAO__idUsu__1CBC4616");
+                    .HasConstraintName("FK__AVALIACAO__idUsu__0D0FEE32");
             });
 
             modelBuilder.Entity<Bairro>(entity =>
             {
                 entity.HasKey(e => e.IdBairro)
-                    .HasName("PK__BAIRRO__86B592A1D1B1853B");
+                    .HasName("PK__BAIRRO__86B592A13D64C9B1");
 
                 entity.ToTable("BAIRRO");
 
-                entity.HasIndex(e => e.NomeBairro, "UQ__BAIRRO__72D4FAEC994D6C32")
+                entity.HasIndex(e => e.NomeBairro, "UQ__BAIRRO__72D4FAEC9E27D708")
                     .IsUnique();
 
                 entity.Property(e => e.IdBairro).HasColumnName("idBairro");
@@ -200,7 +200,7 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Cargo>(entity =>
             {
                 entity.HasKey(e => e.IdCargo)
-                    .HasName("PK__CARGO__3D0E29B831C470AB");
+                    .HasName("PK__CARGO__3D0E29B8478C6E1A");
 
                 entity.ToTable("CARGO");
 
@@ -222,17 +222,17 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Cargos)
                     .HasForeignKey(d => d.IdSetor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CARGO__idSetor__7D439ABD");
+                    .HasConstraintName("FK__CARGO__idSetor__0E04126B");
             });
 
             modelBuilder.Entity<Cep>(entity =>
             {
                 entity.HasKey(e => e.IdCep)
-                    .HasName("PK__CEP__398F6FDAF83DDFC6");
+                    .HasName("PK__CEP__398F6FDA9C0E7590");
 
                 entity.ToTable("CEP");
 
-                entity.HasIndex(e => e.Cep1, "UQ__CEP__D83671A53D5D7173")
+                entity.HasIndex(e => e.Cep1, "UQ__CEP__D83671A59B9CCE6E")
                     .IsUnique();
 
                 entity.Property(e => e.IdCep).HasColumnName("idCep");
@@ -248,11 +248,11 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Cidade>(entity =>
             {
                 entity.HasKey(e => e.IdCidade)
-                    .HasName("PK__CIDADE__559AD0FE884CE1D1");
+                    .HasName("PK__CIDADE__559AD0FE2E99E53B");
 
                 entity.ToTable("CIDADE");
 
-                entity.HasIndex(e => e.NomeCidade, "UQ__CIDADE__FF0A5458FCE2009F")
+                entity.HasIndex(e => e.NomeCidade, "UQ__CIDADE__FF0A5458F612560E")
                     .IsUnique();
 
                 entity.Property(e => e.IdCidade)
@@ -269,7 +269,7 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Comentariocurso>(entity =>
             {
                 entity.HasKey(e => e.IdComentarioCurso)
-                    .HasName("PK__COMENTAR__71861C419213C811");
+                    .HasName("PK__COMENTAR__71861C41BC9B3E34");
 
                 entity.ToTable("COMENTARIOCURSO");
 
@@ -293,19 +293,19 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Comentariocursos)
                     .HasForeignKey(d => d.IdCurso)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__COMENTARI__idCur__2739D489");
+                    .HasConstraintName("FK__COMENTARI__idCur__4EDDB18F");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Comentariocursos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__COMENTARI__idUsu__282DF8C2");
+                    .HasConstraintName("FK__COMENTARI__idUsu__4FD1D5C8");
             });
 
             modelBuilder.Entity<Comentariodesconto>(entity =>
             {
                 entity.HasKey(e => e.IdComentarioDesconto)
-                    .HasName("PK__COMENTAR__E9D0515770A2B028");
+                    .HasName("PK__COMENTAR__E9D05157CCB7F840");
 
                 entity.ToTable("COMENTARIODESCONTO");
 
@@ -325,23 +325,35 @@ namespace SenaiRH_G1.Contexts
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
+                entity.Property(e => e.Negativo)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("negativo");
+
+                entity.Property(e => e.Neutro)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("neutro");
+
+                entity.Property(e => e.Positivo)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("positivo");
+
                 entity.HasOne(d => d.IdDescontoNavigation)
                     .WithMany(p => p.Comentariodescontos)
                     .HasForeignKey(d => d.IdDesconto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__COMENTARI__idDes__3587F3E0");
+                    .HasConstraintName("FK__COMENTARI__idDes__10E07F16");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Comentariodescontos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__COMENTARI__idUsu__367C1819");
+                    .HasConstraintName("FK__COMENTARI__idUsu__11D4A34F");
             });
 
             modelBuilder.Entity<Curso>(entity =>
             {
                 entity.HasKey(e => e.IdCurso)
-                    .HasName("PK__CURSO__8551ED059C8F3729");
+                    .HasName("PK__CURSO__8551ED055608F00A");
 
                 entity.ToTable("CURSO");
 
@@ -393,18 +405,19 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Cursos)
                     .HasForeignKey(d => d.IdEmpresa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CURSO__idEmpresa__245D67DE");
+                    .HasConstraintName("FK__CURSO__idEmpresa__4B0D20AB");
 
                 entity.HasOne(d => d.IdSituacaoInscricaoNavigation)
                     .WithMany(p => p.Cursos)
                     .HasForeignKey(d => d.IdSituacaoInscricao)
-                    .HasConstraintName("FK__CURSO__idSituaca__40058253");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__CURSO__idSituaca__4C0144E4");
             });
 
             modelBuilder.Entity<Cursofavorito>(entity =>
             {
                 entity.HasKey(e => e.IdCursoFavorito)
-                    .HasName("PK__CURSOFAV__B7680EB11BA7A6DD");
+                    .HasName("PK__CURSOFAV__B7680EB14CD38EC8");
 
                 entity.ToTable("CURSOFAVORITO");
 
@@ -418,19 +431,19 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Cursofavoritos)
                     .HasForeignKey(d => d.IdCurso)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CURSOFAVO__idCur__2EDAF651");
+                    .HasConstraintName("FK__CURSOFAVO__idCur__567ED357");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Cursofavoritos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CURSOFAVO__idUsu__2FCF1A8A");
+                    .HasConstraintName("FK__CURSOFAVO__idUsu__5772F790");
             });
 
             modelBuilder.Entity<Decisao>(entity =>
             {
                 entity.HasKey(e => e.IdDecisao)
-                    .HasName("PK__DECISAO__181085E6FC04AB89");
+                    .HasName("PK__DECISAO__181085E6F8D43717");
 
                 entity.ToTable("DECISAO");
 
@@ -460,13 +473,13 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Decisaos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__DECISAO__idUsuar__151B244E");
+                    .HasConstraintName("FK__DECISAO__idUsuar__1699586C");
             });
 
             modelBuilder.Entity<Desconto>(entity =>
             {
                 entity.HasKey(e => e.IdDesconto)
-                    .HasName("PK__DESCONTO__3D5D117AE553C646");
+                    .HasName("PK__DESCONTO__3D5D117A4B287D82");
 
                 entity.ToTable("DESCONTO");
 
@@ -512,13 +525,13 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Descontos)
                     .HasForeignKey(d => d.IdEmpresa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__DESCONTO__idEmpr__32AB8735");
+                    .HasConstraintName("FK__DESCONTO__idEmpr__178D7CA5");
             });
 
             modelBuilder.Entity<Descontofavorito>(entity =>
             {
                 entity.HasKey(e => e.IdDescontoFavorito)
-                    .HasName("PK__DESCONTO__AE1CB35A0736A7D0");
+                    .HasName("PK__DESCONTO__AE1CB35AEE5C6C16");
 
                 entity.ToTable("DESCONTOFAVORITO");
 
@@ -532,26 +545,26 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Descontofavoritos)
                     .HasForeignKey(d => d.IdDesconto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__DESCONTOF__idDes__3D2915A8");
+                    .HasConstraintName("FK__DESCONTOF__idDes__1881A0DE");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Descontofavoritos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__DESCONTOF__idUsu__3E1D39E1");
+                    .HasConstraintName("FK__DESCONTOF__idUsu__1975C517");
             });
 
             modelBuilder.Entity<Empresa>(entity =>
             {
                 entity.HasKey(e => e.IdEmpresa)
-                    .HasName("PK__EMPRESA__75D2CED48C6E3595");
+                    .HasName("PK__EMPRESA__75D2CED4DA0A01BC");
 
                 entity.ToTable("EMPRESA");
 
-                entity.HasIndex(e => e.EmailEmpresa, "UQ__EMPRESA__440803BD8CF4D861")
+                entity.HasIndex(e => e.EmailEmpresa, "UQ__EMPRESA__440803BD1EF539F7")
                     .IsUnique();
 
-                entity.HasIndex(e => e.TelefoneEmpresa, "UQ__EMPRESA__8FB435A97D604DCE")
+                entity.HasIndex(e => e.TelefoneEmpresa, "UQ__EMPRESA__8FB435A9C0A3B9B4")
                     .IsUnique();
 
                 entity.Property(e => e.IdEmpresa).HasColumnName("idEmpresa");
@@ -586,17 +599,17 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Empresas)
                     .HasForeignKey(d => d.IdLocalizacao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__EMPRESA__idLocal__2180FB33");
+                    .HasConstraintName("FK__EMPRESA__idLocal__1A69E950");
             });
 
             modelBuilder.Entity<Estado>(entity =>
             {
                 entity.HasKey(e => e.IdEstado)
-                    .HasName("PK__ESTADO__62EA894ABC1D7D1D");
+                    .HasName("PK__ESTADO__62EA894A3201609F");
 
                 entity.ToTable("ESTADO");
 
-                entity.HasIndex(e => e.NomeEstado, "UQ__ESTADO__20DB075B1B74AAC4")
+                entity.HasIndex(e => e.NomeEstado, "UQ__ESTADO__20DB075B41547779")
                     .IsUnique();
 
                 entity.Property(e => e.IdEstado)
@@ -613,7 +626,7 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Feedback>(entity =>
             {
                 entity.HasKey(e => e.IdFeedBack)
-                    .HasName("PK__FEEDBACK__535470E9CCDCD799");
+                    .HasName("PK__FEEDBACK__535470E928B97C50");
 
                 entity.ToTable("FEEDBACK");
 
@@ -633,9 +646,17 @@ namespace SenaiRH_G1.Contexts
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
-                entity.Property(e => e.NotaDecisao)
+                entity.Property(e => e.Negativo)
                     .HasColumnType("decimal(2, 1)")
-                    .HasColumnName("notaDecisao");
+                    .HasColumnName("negativo");
+
+                entity.Property(e => e.Neutro)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("neutro");
+
+                entity.Property(e => e.Positivo)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("positivo");
 
                 entity.Property(e => e.ValorMoedas).HasColumnName("valorMoedas");
 
@@ -643,19 +664,19 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Feedbacks)
                     .HasForeignKey(d => d.IdDecisao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__FEEDBACK__idDeci__17F790F9");
+                    .HasConstraintName("FK__FEEDBACK__idDeci__1B5E0D89");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Feedbacks)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__FEEDBACK__idUsua__18EBB532");
+                    .HasConstraintName("FK__FEEDBACK__idUsua__1C5231C2");
             });
 
             modelBuilder.Entity<Localizacao>(entity =>
             {
                 entity.HasKey(e => e.IdLocalizacao)
-                    .HasName("PK__LOCALIZA__BEC9BF4F45B2E113");
+                    .HasName("PK__LOCALIZA__BEC9BF4F848DCE23");
 
                 entity.ToTable("LOCALIZACAO");
 
@@ -681,41 +702,41 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Localizacaos)
                     .HasForeignKey(d => d.IdBairro)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__LOCALIZAC__idBai__6EF57B66");
+                    .HasConstraintName("FK__LOCALIZAC__idBai__1D4655FB");
 
                 entity.HasOne(d => d.IdCepNavigation)
                     .WithMany(p => p.Localizacaos)
                     .HasForeignKey(d => d.IdCep)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__LOCALIZAC__idCep__6E01572D");
+                    .HasConstraintName("FK__LOCALIZAC__idCep__1E3A7A34");
 
                 entity.HasOne(d => d.IdCidadeNavigation)
                     .WithMany(p => p.Localizacaos)
                     .HasForeignKey(d => d.IdCidade)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__LOCALIZAC__idCid__70DDC3D8");
+                    .HasConstraintName("FK__LOCALIZAC__idCid__1F2E9E6D");
 
                 entity.HasOne(d => d.IdEstadoNavigation)
                     .WithMany(p => p.Localizacaos)
                     .HasForeignKey(d => d.IdEstado)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__LOCALIZAC__idEst__71D1E811");
+                    .HasConstraintName("FK__LOCALIZAC__idEst__2022C2A6");
 
                 entity.HasOne(d => d.IdLogradouroNavigation)
                     .WithMany(p => p.Localizacaos)
                     .HasForeignKey(d => d.IdLogradouro)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__LOCALIZAC__idLog__6FE99F9F");
+                    .HasConstraintName("FK__LOCALIZAC__idLog__2116E6DF");
             });
 
             modelBuilder.Entity<Logradouro>(entity =>
             {
                 entity.HasKey(e => e.IdLogradouro)
-                    .HasName("PK__LOGRADOU__C2023C43F3EEFD14");
+                    .HasName("PK__LOGRADOU__C2023C439EA49F40");
 
                 entity.ToTable("LOGRADOURO");
 
-                entity.HasIndex(e => e.NomeLogradouro, "UQ__LOGRADOU__9ADBBDF92152CAA6")
+                entity.HasIndex(e => e.NomeLogradouro, "UQ__LOGRADOU__9ADBBDF94519916B")
                     .IsUnique();
 
                 entity.Property(e => e.IdLogradouro).HasColumnName("idLogradouro");
@@ -730,13 +751,14 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Minhasatividade>(entity =>
             {
                 entity.HasKey(e => e.IdMinhasAtividades)
-                    .HasName("PK__MINHASAT__4679039D66CEB1B9");
+                    .HasName("PK__MINHASAT__4679039D330445E3");
 
                 entity.ToTable("MINHASATIVIDADES");
 
                 entity.Property(e => e.IdMinhasAtividades).HasColumnName("idMinhasAtividades");
 
                 entity.Property(e => e.Anotacoes)
+                    .IsRequired()
                     .HasMaxLength(300)
                     .IsUnicode(false)
                     .HasColumnName("anotacoes");
@@ -761,31 +783,31 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Minhasatividades)
                     .HasForeignKey(d => d.IdAtividade)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MINHASATI__idAti__10566F31");
+                    .HasConstraintName("FK__MINHASATI__idAti__220B0B18");
 
                 entity.HasOne(d => d.IdSetorNavigation)
                     .WithMany(p => p.Minhasatividades)
                     .HasForeignKey(d => d.IdSetor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MINHASATI__idSet__114A936A");
+                    .HasConstraintName("FK__MINHASATI__idSet__22FF2F51");
 
                 entity.HasOne(d => d.IdSituacaoAtividadeNavigation)
                     .WithMany(p => p.Minhasatividades)
                     .HasForeignKey(d => d.IdSituacaoAtividade)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MINHASATI__idSit__0F624AF8");
+                    .HasConstraintName("FK__MINHASATI__idSit__23F3538A");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Minhasatividades)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__MINHASATI__idUsu__123EB7A3");
+                    .HasConstraintName("FK__MINHASATI__idUsu__24E777C3");
             });
 
             modelBuilder.Entity<Registrocurso>(entity =>
             {
                 entity.HasKey(e => e.IdRegistroCurso)
-                    .HasName("PK__REGISTRO__0FE8B39F1D0C413B");
+                    .HasName("PK__REGISTRO__0FE8B39F7D1A3F7A");
 
                 entity.ToTable("REGISTROCURSO");
 
@@ -801,24 +823,25 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Registrocursos)
                     .HasForeignKey(d => d.IdCurso)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__REGISTROC__idCur__2B0A656D");
+                    .HasConstraintName("FK__REGISTROC__idCur__5A4F643B");
 
                 entity.HasOne(d => d.IdSituacaoAtividadeNavigation)
                     .WithMany(p => p.Registrocursos)
                     .HasForeignKey(d => d.IdSituacaoAtividade)
-                    .HasConstraintName("FK__REGISTROC__idSit__51300E55");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__REGISTROC__idSit__5C37ACAD");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Registrocursos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__REGISTROC__idUsu__2BFE89A6");
+                    .HasConstraintName("FK__REGISTROC__idUsu__5B438874");
             });
 
             modelBuilder.Entity<Registrodesconto>(entity =>
             {
                 entity.HasKey(e => e.IdRegistroDesconto)
-                    .HasName("PK__REGISTRO__596321F29610CBFD");
+                    .HasName("PK__REGISTRO__596321F210CB7E70");
 
                 entity.ToTable("REGISTRODESCONTO");
 
@@ -832,23 +855,23 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Registrodescontos)
                     .HasForeignKey(d => d.IdDesconto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__REGISTROD__idDes__395884C4");
+                    .HasConstraintName("FK__REGISTROD__idDes__28B808A7");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Registrodescontos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__REGISTROD__idUsu__3A4CA8FD");
+                    .HasConstraintName("FK__REGISTROD__idUsu__29AC2CE0");
             });
 
             modelBuilder.Entity<Setor>(entity =>
             {
                 entity.HasKey(e => e.IdSetor)
-                    .HasName("PK__SETOR__A37801056298D14F");
+                    .HasName("PK__SETOR__A3780105C6D31EB6");
 
                 entity.ToTable("SETOR");
 
-                entity.HasIndex(e => e.NomeSetor, "UQ__SETOR__DD7E5C8B054BF1DD")
+                entity.HasIndex(e => e.NomeSetor, "UQ__SETOR__DD7E5C8B81B2AA7E")
                     .IsUnique();
 
                 entity.Property(e => e.IdSetor)
@@ -865,7 +888,7 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Situacaoatividade>(entity =>
             {
                 entity.HasKey(e => e.IdSituacaoAtividade)
-                    .HasName("PK__SITUACAO__922A8530004D0CE3");
+                    .HasName("PK__SITUACAO__922A8530884609DD");
 
                 entity.ToTable("SITUACAOATIVIDADE");
 
@@ -883,11 +906,11 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Tipousuario>(entity =>
             {
                 entity.HasKey(e => e.IdTipoUsuario)
-                    .HasName("PK__TIPOUSUA__03006BFF5D01DD25");
+                    .HasName("PK__TIPOUSUA__03006BFFC64A3E8D");
 
                 entity.ToTable("TIPOUSUARIO");
 
-                entity.HasIndex(e => e.NomeTipoUsuario, "UQ__TIPOUSUA__A017BD9FBCDFFB02")
+                entity.HasIndex(e => e.NomeTipoUsuario, "UQ__TIPOUSUA__A017BD9F0F6AB634")
                     .IsUnique();
 
                 entity.Property(e => e.IdTipoUsuario)
@@ -904,17 +927,17 @@ namespace SenaiRH_G1.Contexts
             modelBuilder.Entity<Unidadesenai>(entity =>
             {
                 entity.HasKey(e => e.IdUnidadeSenai)
-                    .HasName("PK__UNIDADES__EDC820B8E3D4C8AF");
+                    .HasName("PK__UNIDADES__EDC820B8A759DEAD");
 
                 entity.ToTable("UNIDADESENAI");
 
-                entity.HasIndex(e => e.NomeUnidadeSenai, "UQ__UNIDADES__940F41B5AEACEA41")
+                entity.HasIndex(e => e.NomeUnidadeSenai, "UQ__UNIDADES__940F41B5E4BD8514")
                     .IsUnique();
 
-                entity.HasIndex(e => e.TelefoneUnidadeSenai, "UQ__UNIDADES__B5490FA41930437D")
+                entity.HasIndex(e => e.TelefoneUnidadeSenai, "UQ__UNIDADES__B5490FA4EA937B44")
                     .IsUnique();
 
-                entity.HasIndex(e => e.EmailUnidadeSenai, "UQ__UNIDADES__C4A0ED97F28F92F7")
+                entity.HasIndex(e => e.EmailUnidadeSenai, "UQ__UNIDADES__C4A0ED97310FC98F")
                     .IsUnique();
 
                 entity.Property(e => e.IdUnidadeSenai).HasColumnName("idUnidadeSenai");
@@ -931,9 +954,13 @@ namespace SenaiRH_G1.Contexts
                     .HasColumnType("decimal(2, 1)")
                     .HasColumnName("mediaAvaliacaoUnidadeSenai");
 
-                entity.Property(e => e.MediaSatisfacaoUnidadeSenai)
+                entity.Property(e => e.Negativo)
                     .HasColumnType("decimal(2, 1)")
-                    .HasColumnName("mediaSatisfacaoUnidadeSenai");
+                    .HasColumnName("negativo");
+
+                entity.Property(e => e.Neutro)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("neutro");
 
                 entity.Property(e => e.NomeUnidadeSenai)
                     .IsRequired()
@@ -942,6 +969,10 @@ namespace SenaiRH_G1.Contexts
                     .HasColumnName("nomeUnidadeSenai");
 
                 entity.Property(e => e.NotaProdutividade).HasColumnType("decimal(2, 1)");
+
+                entity.Property(e => e.Positive)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("positive");
 
                 entity.Property(e => e.TelefoneUnidadeSenai)
                     .IsRequired()
@@ -952,23 +983,24 @@ namespace SenaiRH_G1.Contexts
                 entity.HasOne(d => d.IdLocalizacaoNavigation)
                     .WithMany(p => p.Unidadesenais)
                     .HasForeignKey(d => d.IdLocalizacao)
-                    .HasConstraintName("FK__UNIDADESE__idLoc__778AC167");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UNIDADESE__idLoc__2AA05119");
             });
 
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__USUARIO__645723A60374FB2A");
+                    .HasName("PK__USUARIO__645723A6C558DB14");
 
                 entity.ToTable("USUARIO");
 
-                entity.HasIndex(e => e.CaminhoFotoPerfil, "UQ__USUARIO__863E7F4296912642")
+                entity.HasIndex(e => e.CaminhoFotoPerfil, "UQ__USUARIO__863E7F42344BDBA3")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Email, "UQ__USUARIO__AB6E61643F8FC7F3")
+                entity.HasIndex(e => e.Email, "UQ__USUARIO__AB6E61645C828E73")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Cpf, "UQ__USUARIO__D836E71F2D755829")
+                entity.HasIndex(e => e.Cpf, "UQ__USUARIO__D836E71FC4BB5C9F")
                     .IsUnique();
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
@@ -1002,19 +1034,17 @@ namespace SenaiRH_G1.Contexts
 
                 entity.Property(e => e.IdUnidadeSenai).HasColumnName("idUnidadeSenai");
 
-                entity.Property(e => e.LocalizacaoUsuario)
-                    .IsRequired()
-                    .HasMaxLength(256)
-                    .IsUnicode(false)
-                    .HasColumnName("localizacaoUsuario");
-
                 entity.Property(e => e.MediaAvaliacao)
                     .HasColumnType("decimal(2, 1)")
                     .HasColumnName("mediaAvaliacao");
 
-                entity.Property(e => e.NivelSatisfacao)
+                entity.Property(e => e.Negativo)
                     .HasColumnType("decimal(2, 1)")
-                    .HasColumnName("nivelSatisfacao");
+                    .HasColumnName("negativo");
+
+                entity.Property(e => e.Neutro)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("neutro");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
@@ -1025,6 +1055,10 @@ namespace SenaiRH_G1.Contexts
                 entity.Property(e => e.NotaProdutividade)
                     .HasColumnType("decimal(2, 1)")
                     .HasColumnName("notaProdutividade");
+
+                entity.Property(e => e.Positivo)
+                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnName("positivo");
 
                 entity.Property(e => e.SaldoMoeda).HasColumnName("saldoMoeda");
 
@@ -1044,19 +1078,19 @@ namespace SenaiRH_G1.Contexts
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdCargo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__USUARIO__idCargo__02FC7413");
+                    .HasConstraintName("FK__USUARIO__idCargo__2B947552");
 
                 entity.HasOne(d => d.IdTipoUsuarioNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdTipoUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__USUARIO__idTipoU__04E4BC85");
+                    .HasConstraintName("FK__USUARIO__idTipoU__2C88998B");
 
                 entity.HasOne(d => d.IdUnidadeSenaiNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdUnidadeSenai)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__USUARIO__idUnida__03F0984C");
+                    .HasConstraintName("FK__USUARIO__idUnida__2D7CBDC4");
             });
 
             OnModelCreatingPartial(modelBuilder);

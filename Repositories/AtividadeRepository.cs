@@ -45,7 +45,7 @@ namespace SenaiRH_G1.Repositories
                 novaAssociacao.IdSetor = cargo.IdSetor;
                 //Situação da atividade passa a ser "Em produção"
                 novaAssociacao.IdSituacaoAtividade = 3;
-
+                novaAssociacao.Anotacoes = "";
                 //Cadastra nova associação no banco de dados
                 ctx.Minhasatividades.Add(novaAssociacao);
                 ctx.SaveChanges();
