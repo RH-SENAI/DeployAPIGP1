@@ -328,7 +328,7 @@ namespace SenaiRH_G1.Repositories
 
         public void RecusarAtividade(int idMinhasAtividades)
         {
-            Minhasatividade minhaAtividade = ctx.Minhasatividades.FirstOrDefault(a => a.IdMinhasAtividades == id);
+            Minhasatividade minhaAtividade = ctx.Minhasatividades.FirstOrDefault(a => a.IdMinhasAtividades == idMinhasAtividades);
             
             Usuario usuario = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == minhaAtividade.IdUsuario);
 
