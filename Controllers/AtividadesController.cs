@@ -124,6 +124,7 @@ namespace SenaiRH_G1.Controllers
                     });
                 }
                 atividade.DataCadastro = DateTime.Now;
+                atividade.IdSituacaoAtividade = 4;
                 _context.Atividades.Add(atividade);
                 _context.SaveChanges();
 
@@ -136,7 +137,7 @@ namespace SenaiRH_G1.Controllers
             catch (Exception error)
             {
 
-                return BadRequest(error.Message);
+                return BadRequest(error);
             }
 
         }
