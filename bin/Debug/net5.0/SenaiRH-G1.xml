@@ -42,12 +42,6 @@
             <param name="login">Informações de login do usuário</param>
             <returns>O token do usuário logado</returns>
         </member>
-        <member name="M:SenaiRH_G1.Controllers.SetoresController.GetSetors">
-            <summary>
-            Endpoint que lista os setores
-            </summary>
-            <returns>Lista de setores</returns>
-        </member>
         <member name="M:SenaiRH_G1.Controllers.UsuariosController.BuscarUsuario(System.Int32)">
             <summary>
             Endpoint para buscar um usuário pelo ID

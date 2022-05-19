@@ -123,7 +123,7 @@ namespace SenaiRH_G1.Controllers
                         Mensagem = "Os dados estão incorretos"
                     });
                 }
-                atividade.DataCriacao = DateTime.Now;
+                atividade.DataCadastro = DateTime.Now;
                 _context.Atividades.Add(atividade);
                 _context.SaveChanges();
 

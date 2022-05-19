@@ -42,7 +42,6 @@ namespace SenaiRH_G1.Repositories
                 //Atribui os dados à nova associação
                 novaAssociacao.IdUsuario = idUsuario;
                 novaAssociacao.IdAtividade = idAtividade;
-                novaAssociacao.IdSetor = cargo.IdSetor;
                 //Situação da atividade passa a ser "Em produção"
                 novaAssociacao.IdSituacaoAtividade = 3;
                 novaAssociacao.Anotacoes = "";
@@ -64,7 +63,7 @@ namespace SenaiRH_G1.Repositories
                                            IdAtividade = atividades.IdAtividade,
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
-                                           DataCriacao = atividades.DataCriacao,
+                                           DataCriacao = atividades.DataCadastro,
                                            DataConclusao = atividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
@@ -105,7 +104,7 @@ namespace SenaiRH_G1.Repositories
                                            IdAtividade = atividades.IdAtividade,
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
-                                           DataCriacao = atividades.DataCriacao,
+                                           DataCriacao = atividades.DataCadastro,
                                            DataConclusao = atividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
@@ -113,7 +112,6 @@ namespace SenaiRH_G1.Repositories
                                            NecessarioValidar = atividades.NecessarioValidar,
                                            criador = atividades.IdGestorCadastroNavigation.Nome,
                                            IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
-                                           IdSetor = minhasAtividades.IdSetor,
                                            IdUsuario = minhasAtividades.IdUsuario,
                                            IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade
                                        };
@@ -133,14 +131,13 @@ namespace SenaiRH_G1.Repositories
                                            IdAtividade = atividades.IdAtividade,
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
-                                           DataCriacao = atividades.DataCriacao,
+                                           DataCriacao = atividades.DataCadastro,
                                            DataConclusao = atividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
                                            RecompensaTrofeu = atividades.RecompensaTrofeu,
                                            NecessarioValidar = atividades.NecessarioValidar,
                                            IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
-                                           IdSetor = minhasAtividades.IdSetor,
                                            IdUsuario = minhasAtividades.IdUsuario,
                                            IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade
                                        };
@@ -163,7 +160,7 @@ namespace SenaiRH_G1.Repositories
                     RecompensaTrofeu = a.RecompensaTrofeu,
                     DescricaoAtividade = a.DescricaoAtividade,
                     NecessarioValidar = a.NecessarioValidar,
-                    DataCriacao = a.DataCriacao,
+                    DataCadastro = a.DataCadastro,
                     Obrigatorio = a.Obrigatorio,
                     IdGestorCadastroNavigation = new Usuario()
                     {
@@ -183,14 +180,13 @@ namespace SenaiRH_G1.Repositories
                                            IdAtividade = atividades.IdAtividade,
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
-                                           DataCriacao = atividades.DataCriacao,
+                                           DataCriacao = atividades.DataCadastro,
                                            DataConclusao = atividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
                                            RecompensaTrofeu = atividades.RecompensaTrofeu,
                                            NecessarioValidar = atividades.NecessarioValidar,
                                            IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
-                                           IdSetor = minhasAtividades.IdSetor,
                                            IdUsuario = minhasAtividades.IdUsuario,
                                            IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade
                                        };
@@ -285,7 +281,7 @@ namespace SenaiRH_G1.Repositories
                     RecompensaTrofeu = a.RecompensaTrofeu,
                     DescricaoAtividade = a.DescricaoAtividade,
                     NecessarioValidar = a.NecessarioValidar,
-                    DataCriacao = a.DataCriacao,
+                    DataCadastro = a.DataCadastro,
                     Obrigatorio = a.Obrigatorio,
                     IdGestorCadastroNavigation = new Usuario()
                     {
@@ -309,7 +305,7 @@ namespace SenaiRH_G1.Repositories
                     RecompensaTrofeu = a.RecompensaTrofeu,
                     DescricaoAtividade = a.DescricaoAtividade,
                     NecessarioValidar = a.NecessarioValidar,
-                    DataCriacao = a.DataCriacao,
+                    DataCadastro = a.DataCadastro,
                     Obrigatorio = a.Obrigatorio,
                     IdGestorCadastroNavigation = new Usuario()
                     {
