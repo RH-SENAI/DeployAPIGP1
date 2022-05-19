@@ -96,7 +96,7 @@
             <param name="id">ID do Usuário que será buscado</param>
             <returns>O usuário buscado</returns>
         </member>
-        <member name="M:SenaiRH_G1.Repositories.UsuarioRepository.ListarFuncionarios">
+        <member name="M:SenaiRH_G1.Repositories.UsuarioRepository.ListarFuncionarios(System.Int32)">
             <summary>
             Método para listar todos os funcionarios
             </summary>
