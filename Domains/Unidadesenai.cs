@@ -9,23 +9,23 @@ namespace SenaiRH_G1.Domains
     {
         public Unidadesenai()
         {
-            Avaliacaounidadesenais = new HashSet<Avaliacaounidadesenai>();
+            Registrominhasunidades = new HashSet<Registrominhasunidade>();
             Usuarios = new HashSet<Usuario>();
         }
 
         public int IdUnidadeSenai { get; set; }
-        public int IdLocalizacao { get; set; }
+        public int? IdLocalizacao { get; set; }
         public string NomeUnidadeSenai { get; set; }
-        public decimal MediaAvaliacaoUnidadeSenai { get; set; }
         public string TelefoneUnidadeSenai { get; set; }
         public string EmailUnidadeSenai { get; set; }
-        public decimal? NotaProdutividade { get; set; }
-        public decimal Positive { get; set; }
-        public decimal Negativo { get; set; }
-        public decimal Neutro { get; set; }
+        public decimal MediaSatisfacaoUnidadeSenai { get; set; }
+        public decimal MediaProdutividadeUnidadeSenai { get; set; }
+        public decimal MediaAvaliacaoUnidadeSenai { get; set; }
+        public int QtdDeFuncionarios { get; set; }
+        public int QtdFuncionariosAtivos { get; set; }
 
         public virtual Localizacao IdLocalizacaoNavigation { get; set; }
-        public virtual ICollection<Avaliacaounidadesenai> Avaliacaounidadesenais { get; set; }
+        public virtual ICollection<Registrominhasunidade> Registrominhasunidades { get; set; }
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }
