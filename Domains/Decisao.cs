@@ -17,7 +17,6 @@ namespace SenaiRH_G1.Domains
         public string DescricaoDecisao { get; set; }
         public DateTime DataDecisao { get; set; }
         public DateTime PrazoDeAvaliacao { get; set; }
-        public decimal ResultadoDecisao { get; set; }
 
         public virtual Usuario IdUsuarioNavigation { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }

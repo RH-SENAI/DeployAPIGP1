@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SenaiRH_G1.Domains;
 using SenaiRH_G1.Interfaces;
+using SenaiRH_G1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -54,7 +55,7 @@ namespace SenaiRH_G1.Controllers
             }
             catch (Exception ex)
             {
-
+                return BadRequest(ex);
                 throw;
             }
             
@@ -94,7 +95,7 @@ namespace SenaiRH_G1.Controllers
             }
             catch (Exception ex)
             {
-
+                return BadRequest(ex);
                 throw;
             }
 
@@ -109,8 +110,9 @@ namespace SenaiRH_G1.Controllers
         {
             try
             {
+                int idGestor = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Jti).Value);
                 //Instância uma lista de usuários e preenche com funcionarios
-                List<Usuario> lista = _usuarioRepository.ListarFuncionarios();
+                List<FuncionariosViewModel> lista = _usuarioRepository.ListarFuncionarios(idGestor);
 
                 if (lista == null)
                     return NotFound(new
@@ -121,7 +123,7 @@ namespace SenaiRH_G1.Controllers
             }
             catch (Exception ex)
             {
-
+                return BadRequest(ex);
                 throw;
             }
             
@@ -147,9 +149,9 @@ namespace SenaiRH_G1.Controllers
                     Mensagem = resposta
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                return BadRequest(ex);
                 throw;
             }
         }
@@ -180,8 +182,8 @@ namespace SenaiRH_G1.Controllers
             catch (Exception ex)
             {
 
-                throw;
                 return BadRequest(ex);
+                throw;
             }
         }
 
@@ -215,9 +217,9 @@ namespace SenaiRH_G1.Controllers
                 return BadRequest();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                return BadRequest(ex);
                 throw;
             }
         }
@@ -246,8 +248,8 @@ namespace SenaiRH_G1.Controllers
             catch (Exception ex)
             {
 
-                throw;
                 return BadRequest(ex);
+                throw;
             }
         }
         [HttpGet("Ranking")]

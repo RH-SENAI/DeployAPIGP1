@@ -1,4 +1,5 @@
 ﻿using SenaiRH_G1.Domains;
+using SenaiRH_G1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace SenaiRH_G1.Interfaces
     {
         Usuario Login(string cpf, string senha);
         Usuario BuscarUsuario(int id);
-        List<Usuario> ListarFuncionarios(int idGestor);
+        List<FuncionariosViewModel> ListarFuncionarios(int idGestor);
         List<Usuario> Ranking();
         void AlterarSenha(int idUsuario, string senhaNova, string senhaAtual, string senhaConfirmacao);
         void AlterarSenhaRec(string email, string senhaNova, string senhaConfirmacao);

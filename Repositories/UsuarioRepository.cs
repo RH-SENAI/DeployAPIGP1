@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using SenaiRH_G1.ViewModel;
 
 namespace SenaiRH_G1.Repositories
 {
@@ -39,10 +40,10 @@ namespace SenaiRH_G1.Repositories
         /// Método para listar todos os funcionarios
         /// </summary>
         /// <returns>Retorna todos os funcionários cadastrados</returns>
-        public List<Usuario> ListarFuncionarios()
+        public List<FuncionariosViewModel> ListarFuncionarios(int idGestor)
         {
             //Busca todos os usuários do sistema que
-           return ctx.Usuarios
+           /*return ctx.Usuarios
                 //IdTipoUsuario seja igual ao de funcionario
                 .Where(u => u.IdTipoUsuario == 1)
                 //Seleciona os dados que serão enviados na resposta
@@ -66,7 +67,26 @@ namespace SenaiRH_G1.Repositories
                         NomeCargo = u.IdCargoNavigation.NomeCargo,
                         IdCargo = u.IdCargoNavigation.IdCargo
                     }
-                }).ToList();
+                }).ToList();*/
+
+            var listaFuncionarios = from usuario in ctx.Usuarios                                     
+                                       join lotacaos in ctx.Lotacaos on usuario.IdUsuario equals lotacaos.IdFuncionario
+                                       where lotacaos.IdGestor == idGestor
+                                       select new FuncionariosViewModel
+                                       {
+                                           IdUsuario = usuario.IdUsuario,
+                                           Nome = usuario.Nome,
+                                           Latitude = usuario.Latitude,
+                                           Longitude = usuario.Longitude,
+                                           Cpf = usuario.Cpf,
+                                           Email = usuario.Email,
+                                           DataNascimento = usuario.DataNascimento,
+                                           SaldoMoeda = usuario.SaldoMoeda,
+                                           Trofeus = usuario.Trofeus,
+                                           CaminhoFotoPerfil = usuario.CaminhoFotoPerfil
+
+                                       };
+            return listaFuncionarios.ToList();
         }
 
         /// <summary>
