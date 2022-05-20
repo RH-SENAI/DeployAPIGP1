@@ -55,7 +55,7 @@
             </summary>
             <returns>O usuário que está logado</returns>
         </member>
-        <member name="M:SenaiRH_G1.Controllers.UsuariosController.ListarFuncionarios">
+        <member name="M:SenaiRH_G1.Controllers.UsuariosController.ListarFuncionarios(System.Int32)">
             <summary>
             Endpoint que lista todos os funcionários 
             </summary>
