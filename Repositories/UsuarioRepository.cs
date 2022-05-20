@@ -71,7 +71,7 @@ namespace SenaiRH_G1.Repositories
 
             var listaFuncionarios = from usuario in ctx.Usuarios                                     
                                        join lotacaos in ctx.Lotacaos on usuario.IdUsuario equals lotacaos.IdFuncionario
-                                       where lotacaos.IdGestor == idGestor
+                                      // where lotacaos.IdGestor == idGestor
                                        select new FuncionariosViewModel
                                        {
                                            IdUsuario = usuario.IdUsuario,

@@ -18,9 +18,9 @@ namespace SenaiRH_G1.Domains
             Decisaos = new HashSet<Decisao>();
             Descontofavoritos = new HashSet<Descontofavorito>();
             Feedbacks = new HashSet<Feedback>();
-            Historicosatisfacaos = new HashSet<Historicosatisfacao>();
-            LotacaoIdFuncionarioNavigations = new HashSet<Lotacao>();
-            LotacaoIdGestorNavigations = new HashSet<Lotacao>();
+            Grupos = new HashSet<Grupo>();
+            Historicos = new HashSet<Historico>();
+            Lotacaos = new HashSet<Lotacao>();
             Minhasatividades = new HashSet<Minhasatividade>();
             Registrocursos = new HashSet<Registrocurso>();
             Registrodescontos = new HashSet<Registrodesconto>();
@@ -38,7 +38,6 @@ namespace SenaiRH_G1.Domains
         public string Email { get; set; }
         public string Senha { get; set; }
         public DateTime DataNascimento { get; set; }
-        public decimal NivelSatisfacao { get; set; }
         public int SaldoMoeda { get; set; }
         public int Trofeus { get; set; }
         public string CaminhoFotoPerfil { get; set; }
@@ -68,9 +67,9 @@ namespace SenaiRH_G1.Domains
         public virtual ICollection<Decisao> Decisaos { get; set; }
         public virtual ICollection<Descontofavorito> Descontofavoritos { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }
-        public virtual ICollection<Historicosatisfacao> Historicosatisfacaos { get; set; }
-        public virtual ICollection<Lotacao> LotacaoIdFuncionarioNavigations { get; set; }
-        public virtual ICollection<Lotacao> LotacaoIdGestorNavigations { get; set; }
+        public virtual ICollection<Grupo> Grupos { get; set; }
+        public virtual ICollection<Historico> Historicos { get; set; }
+        public virtual ICollection<Lotacao> Lotacaos { get; set; }
         public virtual ICollection<Minhasatividade> Minhasatividades { get; set; }
         public virtual ICollection<Registrocurso> Registrocursos { get; set; }
         public virtual ICollection<Registrodesconto> Registrodescontos { get; set; }

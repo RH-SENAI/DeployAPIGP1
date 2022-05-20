@@ -7,12 +7,11 @@ namespace SenaiRH_G1.Domains
 {
     public partial class Lotacao
     {
-        public int IdLotacao { get; set; }
-        public int? IdGestor { get; set; }
-        public int? IdFuncionario { get; set; }
-        public string TituloLotacao { get; set; }
+        public int IdLotacçao { get; set; }
+        public int IdFuncionario { get; set; }
+        public byte IdGrupo { get; set; }
 
         public virtual Usuario IdFuncionarioNavigation { get; set; }
-        public virtual Usuario IdGestorNavigation { get; set; }
+        public virtual Grupo IdGrupoNavigation { get; set; }
     }
 }
