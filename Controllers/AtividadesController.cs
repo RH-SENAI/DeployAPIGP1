@@ -281,12 +281,12 @@ namespace SenaiRH_G1.Controllers
         /// <returns>Mensagem de confirmação</returns>
         //[Authorize]
         [HttpPatch("FinalizarAtividade/{idAtividade}")]
-        public IActionResult FinalizarAtividade(int idAtividade)
+        public IActionResult FinalizarAtividade(int idAtividade, IFormFile arquivo)
         {
             try
             {
                 //Busca o ID do usuário logado
-                int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                int idUsuario = 2;
 
                 //Busca atividade pelo ID fornecido
                 Atividade atividade = _context.Atividades.FirstOrDefault(a => a.IdAtividade == idAtividade);
@@ -304,7 +304,7 @@ namespace SenaiRH_G1.Controllers
                     if (minhaAtividade != null)
                     {
                         //Caso seja existente, chama o método de Finalizar a atividade
-                        _atividadeRepository.FinalizarAtividade(idUsuario, idAtividade);
+                        _atividadeRepository.FinalizarAtividade(idUsuario, idAtividade, arquivo);
 
                         //Verifica se a atividade tem necessidade de validação
                         if (atividade.NecessarioValidar)

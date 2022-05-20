@@ -20,7 +20,7 @@
             <returns>Mensagem de confirmação</returns>
             [Authorize]
         </member>
-        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32)">
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             Endpoint de finalizar uma atividade que está em produção
             </summary>
@@ -75,7 +75,7 @@
             <param name="id">ID do usuário que terá suas atividades listadas</param>
             <returns>Lista de atividades</returns>
         </member>
-        <member name="M:SenaiRH_G1.Repositories.AtividadeRepository.FinalizarAtividade(System.Int32,System.Int32)">
+        <member name="M:SenaiRH_G1.Repositories.AtividadeRepository.FinalizarAtividade(System.Int32,System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             Método para finalizar uma atividade em curso
             </summary>

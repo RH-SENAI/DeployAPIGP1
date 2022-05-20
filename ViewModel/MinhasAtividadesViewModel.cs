@@ -19,5 +19,6 @@ namespace SenaiRH_G1.ViewModel
         public byte IdSituacaoAtividade { get; set; }
         public byte IdSetor { get; set; }
         public int IdUsuario { get; set; }
+        public string Anotacoes { get; set; }
     }
 }
