@@ -110,7 +110,6 @@ namespace SenaiRH_G1.Controllers
         {
             try
             {
-                //int idGestor = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Jti).Value);
                 //Instância uma lista de usuários e preenche com funcionarios
                 List<FuncionariosViewModel> lista = _usuarioRepository.ListarFuncionarios(id);
 
