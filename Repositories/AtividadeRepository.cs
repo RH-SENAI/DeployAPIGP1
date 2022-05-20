@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using SenaiRH_G1.Contexts;
 using SenaiRH_G1.Domains;
 using SenaiRH_G1.Interfaces;
+using SenaiRH_G1.Utils;
 using SenaiRH_G1.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -188,7 +189,8 @@ namespace SenaiRH_G1.Repositories
                                            NecessarioValidar = atividades.NecessarioValidar,
                                            IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
                                            IdUsuario = minhasAtividades.IdUsuario,
-                                           IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade
+                                           IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade,
+                                           Anotacoes = minhasAtividades.Anotacoes
                                        };
 
 
@@ -206,12 +208,14 @@ namespace SenaiRH_G1.Repositories
         /// </summary>
         /// <param name="idUsuario">ID do usuário que terá sua atividade finalizada</param>
         /// <param name="idAtividade">ID da atividade que será finalizada</param>
-        public void FinalizarAtividade(int idUsuario, int idAtividade)
+        public void FinalizarAtividade(int idUsuario, int idAtividade, IFormFile arquivo)
         {
             //Buscando as entidades por meio dos ID's fornecidos
             Minhasatividade minhaAtividade = ctx.Minhasatividades.FirstOrDefault(a => a.IdAtividade == idAtividade && a.IdUsuario == idUsuario);
             Atividade atividade = ctx.Atividades.FirstOrDefault(a => a.IdAtividade == idAtividade);
             Usuario usuario = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+
+            string uploadResultado = Upload.UploadFile(arquivo).ToString();
 
             //Verificação se existe a relação entre usuário e atividade
             if (minhaAtividade != null)
@@ -220,6 +224,7 @@ namespace SenaiRH_G1.Repositories
                 if(atividade.NecessarioValidar)
                 {
                     //Caso necessário, a situação da atividade será alterada para "Aguardando validação"
+                    minhaAtividade.Anotacoes = uploadResultado;
                     minhaAtividade.IdSituacaoAtividade = 2;
                     ctx.Minhasatividades.Update(minhaAtividade);
                     ctx.SaveChanges();
@@ -227,6 +232,7 @@ namespace SenaiRH_G1.Repositories
                 else
                 {
                     //Caso contrário, a situação da atividade será alterada para "Finalizada" e as recompensas da atividade serão atribuídas ao usuário
+                    minhaAtividade.Anotacoes = uploadResultado;
                     minhaAtividade.IdSituacaoAtividade = 1;
                     usuario.SaldoMoeda = usuario.SaldoMoeda + atividade.RecompensaMoeda;
                     usuario.Trofeus = usuario.Trofeus + atividade.RecompensaTrofeu;

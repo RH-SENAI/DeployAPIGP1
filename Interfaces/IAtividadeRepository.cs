@@ -1,4 +1,5 @@
-﻿using SenaiRH_G1.Domains;
+﻿using Microsoft.AspNetCore.Http;
+using SenaiRH_G1.Domains;
 using SenaiRH_G1.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace SenaiRH_G1.Interfaces
         List<MinhasAtividadesViewModel> ListaValidar();
 
         void AssociarAtividade(int idUsuario, int idAtividade);
-        void FinalizarAtividade(int idUsuario, int idAtividade);
+        void FinalizarAtividade(int idUsuario, int idAtividade, IFormFile arquivo);
         void ValidarAtividade(int idAtividade, int idUsuario);
         void RecusarAtividade(int idMinhasAtividades);
     }
