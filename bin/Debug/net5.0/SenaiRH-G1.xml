@@ -20,7 +20,7 @@
             <returns>Mensagem de confirmação</returns>
             [Authorize]
         </member>
-        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
             <summary>
             Endpoint de finalizar uma atividade que está em produção
             </summary>
@@ -55,7 +55,7 @@
             </summary>
             <returns>O usuário que está logado</returns>
         </member>
-        <member name="M:SenaiRH_G1.Controllers.UsuariosController.ListarFuncionarios">
+        <member name="M:SenaiRH_G1.Controllers.UsuariosController.ListarFuncionarios(System.Int32)">
             <summary>
             Endpoint que lista todos os funcionários 
             </summary>

@@ -105,14 +105,13 @@ namespace SenaiRH_G1.Controllers
         /// Endpoint que lista todos os funcionários 
         /// </summary>
         /// <returns>Lista de Uusários</returns>
-        [HttpGet("Funcionarios")]
-        public IActionResult ListarFuncionarios()
+        [HttpGet("Funcionarios/{id}")]
+        public IActionResult ListarFuncionarios(int id)
         {
             try
             {
-                int idGestor = 2;
                 //Instância uma lista de usuários e preenche com funcionarios
-                List<FuncionariosViewModel> lista = _usuarioRepository.ListarFuncionarios(idGestor);
+                List<FuncionariosViewModel> lista = _usuarioRepository.ListarFuncionarios(id);
 
                 if (lista == null)
                     return NotFound(new
