@@ -280,13 +280,11 @@ namespace SenaiRH_G1.Controllers
         /// <param name="idAtividade">ID da atividade que será finalizada</param>
         /// <returns>Mensagem de confirmação</returns>
         //[Authorize]
-        [HttpPatch("FinalizarAtividade/{idAtividade}")]
-        public IActionResult FinalizarAtividade(int idAtividade, IFormFile arquivo)
+        [HttpPatch("FinalizarAtividade/{idAtividade}/{idUsuario}")]
+        public IActionResult FinalizarAtividade(int idAtividade, IFormFile arquivo, int idUsuario)
         {
             try
             {
-                //Busca o ID do usuário logado
-                int idUsuario = 2;
 
                 //Busca atividade pelo ID fornecido
                 Atividade atividade = _context.Atividades.FirstOrDefault(a => a.IdAtividade == idAtividade);
