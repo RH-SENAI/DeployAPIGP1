@@ -284,7 +284,7 @@ namespace SenaiRH_G1.Controllers
         /// <returns>Mensagem de confirmação</returns>
         //[Authorize]
 
-        [HttpPatch("FinalizarAtividade/{idAtividade}/{idUsuario}")]
+        [HttpPost("FinalizarAtividade/{idAtividade}/{idUsuario}")]
         public IActionResult FinalizarAtividade(int idAtividade, IFormFile file, int idUsuario)
         {
             try
