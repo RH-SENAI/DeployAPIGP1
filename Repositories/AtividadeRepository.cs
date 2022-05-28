@@ -225,6 +225,7 @@ namespace SenaiRH_G1.Repositories
                 {
                     //Caso necessário, a situação da atividade será alterada para "Aguardando validação"
                     minhaAtividade.Anotacoes = uploadResultado;
+                    minhaAtividade.DataConclusao = DateTime.Now;
                     minhaAtividade.IdSituacaoAtividade = 2;
                     ctx.Minhasatividades.Update(minhaAtividade);
                     ctx.SaveChanges();
@@ -233,6 +234,7 @@ namespace SenaiRH_G1.Repositories
                 {
                     //Caso contrário, a situação da atividade será alterada para "Finalizada" e as recompensas da atividade serão atribuídas ao usuário
                     minhaAtividade.Anotacoes = uploadResultado;
+                    minhaAtividade.DataConclusao = DateTime.Now;
                     minhaAtividade.IdSituacaoAtividade = 1;
                     usuario.SaldoMoeda = usuario.SaldoMoeda + atividade.RecompensaMoeda;
                     usuario.Trofeus = usuario.Trofeus + atividade.RecompensaTrofeu;

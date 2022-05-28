@@ -20,7 +20,7 @@
             <returns>Mensagem de confirmação</returns>
             [Authorize]
         </member>
-        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             Endpoint de finalizar uma atividade que está em produção
             </summary>

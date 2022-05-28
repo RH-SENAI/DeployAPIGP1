@@ -279,19 +279,17 @@ namespace SenaiRH_G1.Controllers
         /// Endpoint de finalizar uma atividade que está em produção
         /// </summary>
         /// <param name="idAtividade">ID da atividade que será finalizada</param>
+        /// /// <param name="idUsuario">ID do usuário que terá sua atividade finalizada</param>
+        /// <param name="file">Arquivo de comprovação de finalização da atividade</param>
         /// <returns>Mensagem de confirmação</returns>
         //[Authorize]
-        [HttpPost("FinalizarAtividade/{idAtividade}")]
-        public IActionResult FinalizarAtividade(int idAtividade, IFormFile file)
+
+        [HttpPatch("FinalizarAtividade/{idAtividade}/{idUsuario}")]
+        public IActionResult FinalizarAtividade(int idAtividade, IFormFile file, int idUsuario)
         {
             try
             {
-                string toma = Request.Form["arquivo"];
-                //Busca o ID do usuário logado
-                int idUsuario = 2;
-                
-                var head = Request.Headers["arquivo"];
-                
+
                 //Busca atividade pelo ID fornecido
                 Atividade atividade = _context.Atividades.FirstOrDefault(a => a.IdAtividade == idAtividade);
 
