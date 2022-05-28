@@ -34,7 +34,8 @@ namespace SenaiRH_G1.Contexts
         public virtual DbSet<Empresa> Empresas { get; set; }
         public virtual DbSet<Estado> Estados { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
-        public virtual DbSet<Historicosatisfacao> Historicosatisfacaos { get; set; }
+        public virtual DbSet<Grupo> Grupos { get; set; }
+        public virtual DbSet<Historico> Historicos { get; set; }
         public virtual DbSet<Localizacao> Localizacaos { get; set; }
         public virtual DbSet<Logradouro> Logradouros { get; set; }
         public virtual DbSet<Lotacao> Lotacaos { get; set; }
@@ -130,7 +131,7 @@ namespace SenaiRH_G1.Contexts
                 entity.Property(e => e.IdAvaliacaoUsuario).HasColumnName("idAvaliacaoUsuario");
 
                 entity.Property(e => e.AvaliacaoUsuario1)
-                    .HasColumnType("decimal(2, 1)")
+                    .HasColumnType("decimal(3, 2)")
                     .HasColumnName("avaliacaoUsuario");
 
                 entity.Property(e => e.IdUsuarioAvaliado).HasColumnName("idUsuarioAvaliado");
@@ -645,14 +646,43 @@ namespace SenaiRH_G1.Contexts
                     .HasConstraintName("FK__FEEDBACK__idUsua__1FB8AE52");
             });
 
-            modelBuilder.Entity<Historicosatisfacao>(entity =>
+            modelBuilder.Entity<Grupo>(entity =>
             {
-                entity.HasKey(e => e.IdHistoricoSatisfacao)
+                entity.HasKey(e => e.IdGrupo)
+                    .HasName("PK__GRUPO__EC597A871AA53BB6");
+
+                entity.ToTable("GRUPO");
+
+                entity.HasIndex(e => e.NomeGrupo, "UQ__GRUPO__58B640D31685BC54")
+                    .IsUnique();
+
+                entity.Property(e => e.IdGrupo)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("idGrupo");
+
+                entity.Property(e => e.IdGestor).HasColumnName("idGestor");
+
+                entity.Property(e => e.NomeGrupo)
+                    .IsRequired()
+                    .HasMaxLength(256)
+                    .IsUnicode(false)
+                    .HasColumnName("nomeGrupo");
+
+                entity.HasOne(d => d.IdGestorNavigation)
+                    .WithMany(p => p.Grupos)
+                    .HasForeignKey(d => d.IdGestor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__GRUPO__idGestor__5AD97420");
+            });
+
+            modelBuilder.Entity<Historico>(entity =>
+            {
+                entity.HasKey(e => e.IdHistorico)
                     .HasName("PK__HISTORIC__6DD36FCFA9A9EBD7");
 
-                entity.ToTable("HISTORICOSATISFACAO");
+                entity.ToTable("HISTORICO");
 
-                entity.Property(e => e.IdHistoricoSatisfacao).HasColumnName("idHistoricoSatisfacao");
+                entity.Property(e => e.IdHistorico).HasColumnName("idHistorico");
 
                 entity.Property(e => e.AtualizadoEm)
                     .HasColumnType("datetime")
@@ -660,8 +690,30 @@ namespace SenaiRH_G1.Contexts
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
+                entity.Property(e => e.MediaAvaliacao)
+                    .HasColumnType("decimal(3, 2)")
+                    .HasColumnName("mediaAvaliacao");
+
+                entity.Property(e => e.NivelSatisfacao)
+                    .HasColumnType("decimal(3, 2)")
+                    .HasColumnName("nivelSatisfacao");
+
+                entity.Property(e => e.NotaProdutividade)
+                    .HasColumnType("decimal(3, 2)")
+                    .HasColumnName("notaProdutividade");
+
+                entity.Property(e => e.QtdDeTotalAtividade).HasColumnName("qtdDeTotalAtividade");
+
+                entity.Property(e => e.QtdDeTotalCursos).HasColumnName("qtdDeTotalCursos");
+
+                entity.Property(e => e.QtdDeTotalDescontos).HasColumnName("qtdDeTotalDescontos");
+
+                entity.Property(e => e.SaldoMoeda).HasColumnName("saldoMoeda");
+
+                entity.Property(e => e.Trofeus).HasColumnName("trofeus");
+
                 entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany(p => p.Historicosatisfacaos)
+                    .WithMany(p => p.Historicos)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__HISTORICO__idUsu__45DE573A");
@@ -744,31 +796,28 @@ namespace SenaiRH_G1.Contexts
 
             modelBuilder.Entity<Lotacao>(entity =>
             {
-                entity.HasKey(e => e.IdLotacao)
-                    .HasName("PK__lotacao__259B3A9C8C5324F7");
+                entity.HasKey(e => e.IdLotacçao)
+                    .HasName("PK__LOTACAO__9DB7395EB93631BA");
 
                 entity.ToTable("LOTACAO");
 
-                entity.Property(e => e.IdLotacao).HasColumnName("idLotacao");
+                entity.Property(e => e.IdLotacçao).HasColumnName("idLotacçao");
 
                 entity.Property(e => e.IdFuncionario).HasColumnName("idFuncionario");
 
-                entity.Property(e => e.IdGestor).HasColumnName("idGestor");
-
-                entity.Property(e => e.TituloLotacao)
-                    .HasMaxLength(200)
-                    .IsUnicode(false)
-                    .HasColumnName("tituloLotacao");
+                entity.Property(e => e.IdGrupo).HasColumnName("idGrupo");
 
                 entity.HasOne(d => d.IdFuncionarioNavigation)
-                    .WithMany(p => p.LotacaoIdFuncionarioNavigations)
+                    .WithMany(p => p.Lotacaos)
                     .HasForeignKey(d => d.IdFuncionario)
-                    .HasConstraintName("FK__lotacao__idFunci__53385258");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LOTACAO__idFunci__5EAA0504");
 
-                entity.HasOne(d => d.IdGestorNavigation)
-                    .WithMany(p => p.LotacaoIdGestorNavigations)
-                    .HasForeignKey(d => d.IdGestor)
-                    .HasConstraintName("FK__lotacao__idGesto__52442E1F");
+                entity.HasOne(d => d.IdGrupoNavigation)
+                    .WithMany(p => p.Lotacaos)
+                    .HasForeignKey(d => d.IdGrupo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LOTACAO__idGrupo__5F9E293D");
             });
 
             modelBuilder.Entity<Minhasatividade>(entity =>
@@ -1099,10 +1148,6 @@ namespace SenaiRH_G1.Contexts
                 entity.Property(e => e.MediaAvaliacao)
                     .HasColumnType("decimal(3, 2)")
                     .HasColumnName("mediaAvaliacao");
-
-                entity.Property(e => e.NivelSatisfacao)
-                    .HasColumnType("decimal(2, 1)")
-                    .HasColumnName("nivelSatisfacao");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()

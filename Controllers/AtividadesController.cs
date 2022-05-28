@@ -10,6 +10,7 @@ using SenaiRH_G1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -280,14 +281,17 @@ namespace SenaiRH_G1.Controllers
         /// <param name="idAtividade">ID da atividade que será finalizada</param>
         /// <returns>Mensagem de confirmação</returns>
         //[Authorize]
-        [HttpPatch("FinalizarAtividade/{idAtividade}")]
-        public IActionResult FinalizarAtividade(int idAtividade, IFormFile arquivo)
+        [HttpPost("FinalizarAtividade/{idAtividade}")]
+        public IActionResult FinalizarAtividade(int idAtividade, IFormFile file)
         {
             try
             {
+                string toma = Request.Form["arquivo"];
                 //Busca o ID do usuário logado
                 int idUsuario = 2;
-
+                
+                var head = Request.Headers["arquivo"];
+                
                 //Busca atividade pelo ID fornecido
                 Atividade atividade = _context.Atividades.FirstOrDefault(a => a.IdAtividade == idAtividade);
 
@@ -304,7 +308,7 @@ namespace SenaiRH_G1.Controllers
                     if (minhaAtividade != null)
                     {
                         //Caso seja existente, chama o método de Finalizar a atividade
-                        _atividadeRepository.FinalizarAtividade(idUsuario, idAtividade, arquivo);
+                         _atividadeRepository.FinalizarAtividade(idUsuario, idAtividade, file);
 
                         //Verifica se a atividade tem necessidade de validação
                         if (atividade.NecessarioValidar)

@@ -27,7 +27,7 @@ namespace SenaiRH_G1.Utils
         /// <returns>Nome do arquivo salvo</returns>
         public static string UploadFile(IFormFile arquivo)
         {
-            string[] extensoesPermitidas = { "jpg", "png", "jpeg", "pdf" };
+            string[] extensoesPermitidas = { "jpg", "png", "jpeg", "pdf", "JPG", "PNG", "JPEG", "PDF" };
             try
             {
                 var pasta = Path.Combine("StaticFiles", "Images");
