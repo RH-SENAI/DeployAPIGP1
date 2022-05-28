@@ -99,7 +99,7 @@ namespace SenaiRH_G1.Repositories
             //Query que busca as atividades associadas ao usuário
             var listaMinhasAtividade = from atividades in ctx.Atividades
                                        join minhasAtividades in ctx.Minhasatividades on atividades.IdAtividade equals minhasAtividades.IdAtividade
-                                       where minhasAtividades.IdUsuario == id
+                                       where minhasAtividades.IdUsuario == id && minhasAtividades.IdSituacaoAtividade == 3
                                        select new MinhasAtividadesViewModel
                                        {
                                            IdAtividade = atividades.IdAtividade,
@@ -126,7 +126,7 @@ namespace SenaiRH_G1.Repositories
             //Query que busca as atividades associadas ao usuário
             var listaMinhasAtividade = from atividades in ctx.Atividades
                                        join minhasAtividades in ctx.Minhasatividades on atividades.IdAtividade equals minhasAtividades.IdAtividade
-                                       where minhasAtividades.IdUsuario == id & atividades.Obrigatorio == false
+                                       where minhasAtividades.IdUsuario == id & atividades.Obrigatorio == false & minhasAtividades.IdSituacaoAtividade == 3
                                        select new MinhasAtividadesViewModel
                                        {
                                            IdAtividade = atividades.IdAtividade,
