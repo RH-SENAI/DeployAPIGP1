@@ -106,7 +106,7 @@ namespace SenaiRH_G1.Repositories
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
                                            DataCriacao = atividades.DataCadastro,
-                                           DataConclusao = atividades.DataConclusao,
+                                           DataConclusao = minhasAtividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
                                            RecompensaTrofeu = atividades.RecompensaTrofeu,
@@ -121,6 +121,36 @@ namespace SenaiRH_G1.Repositories
             return listaMinhasAtividade.ToList();
 
         }
+
+        public List<MinhasAtividadesViewModel> ListarMinhasFinalizadas(int id)
+        {
+            //Query que busca as atividades associadas ao usuário
+            var listaMinhasAtividade = from atividades in ctx.Atividades
+                                       join minhasAtividades in ctx.Minhasatividades on atividades.IdAtividade equals minhasAtividades.IdAtividade
+                                       where minhasAtividades.IdUsuario == id && minhasAtividades.IdSituacaoAtividade == 1
+                                       select new MinhasAtividadesViewModel
+                                       {
+                                           IdAtividade = atividades.IdAtividade,
+                                           NomeAtividade = atividades.NomeAtividade,
+                                           DataInicio = atividades.DataInicio,
+                                           DataCriacao = atividades.DataCadastro,
+                                           DataConclusao = minhasAtividades.DataConclusao,
+                                           DescricaoAtividade = atividades.DescricaoAtividade,
+                                           RecompensaMoeda = atividades.RecompensaMoeda,
+                                           RecompensaTrofeu = atividades.RecompensaTrofeu,
+                                           NecessarioValidar = atividades.NecessarioValidar,
+                                           criador = atividades.IdGestorCadastroNavigation.Nome,
+                                           IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
+                                           IdUsuario = minhasAtividades.IdUsuario,
+                                           IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade
+                                       };
+
+
+            return listaMinhasAtividade.ToList();
+
+        }
+
+
         public List<MinhasAtividadesViewModel> ListarMinhasExtras(int id)
         {
             //Query que busca as atividades associadas ao usuário
@@ -133,7 +163,7 @@ namespace SenaiRH_G1.Repositories
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
                                            DataCriacao = atividades.DataCadastro,
-                                           DataConclusao = atividades.DataConclusao,
+                                           DataConclusao = minhasAtividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
                                            RecompensaTrofeu = atividades.RecompensaTrofeu,

@@ -20,11 +20,13 @@
             <returns>Mensagem de confirmação</returns>
             [Authorize]
         </member>
-        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+        <member name="M:SenaiRH_G1.Controllers.AtividadesController.FinalizarAtividade(System.Int32,Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
             <summary>
             Endpoint de finalizar uma atividade que está em produção
             </summary>
             <param name="idAtividade">ID da atividade que será finalizada</param>
+            /// <param name="idUsuario">ID do usuário que terá sua atividade finalizada</param>
+            <param name="file">Arquivo de comprovação de finalização da atividade</param>
             <returns>Mensagem de confirmação</returns>
         </member>
         <member name="M:SenaiRH_G1.Controllers.AtividadesController.ValidarAtividade(System.Int32,System.Int32)">

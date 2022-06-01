@@ -18,6 +18,7 @@ namespace SenaiRH_G1.Interfaces
         List<Atividade> ListarObrigatorias();
         List<Atividade> ListarExtras();
         List<MinhasAtividadesViewModel> ListarMinhas(int id);
+        List<MinhasAtividadesViewModel> ListarMinhasFinalizadas(int id);
         List<MinhasAtividadesViewModel> ListarMinhasExtras(int id);
         List<MinhasAtividadesViewModel> ListaValidar();
 
