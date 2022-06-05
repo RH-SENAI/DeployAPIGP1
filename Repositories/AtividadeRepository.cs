@@ -213,7 +213,7 @@ namespace SenaiRH_G1.Repositories
                                            NomeAtividade = atividades.NomeAtividade,
                                            DataInicio = atividades.DataInicio,
                                            DataCriacao = atividades.DataCadastro,
-                                           DataConclusao = atividades.DataConclusao,
+                                           DataConclusao = minhasAtividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
                                            RecompensaMoeda = atividades.RecompensaMoeda,
                                            RecompensaTrofeu = atividades.RecompensaTrofeu,
