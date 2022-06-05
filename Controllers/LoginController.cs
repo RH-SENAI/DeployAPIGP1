@@ -61,6 +61,7 @@ namespace SenaiRH_G1.Controllers
                     new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString()),
                     new Claim("isActive", usuarioBuscado.UsuarioAtivo.ToString()),
                     new Claim("role", usuarioBuscado.IdTipoUsuario.ToString()),
+                    new Claim("foto", usuarioBuscado.CaminhoFotoPerfil.ToString())
                     ///new Claim("nivelSatisfa", usuarioBuscado.NivelSatisfacao.ToString())
                 };
 
