@@ -46,6 +46,8 @@ namespace SenaiRH_G1.Repositories
                 //Situação da atividade passa a ser "Em produção"
                 novaAssociacao.IdSituacaoAtividade = 3;
                 novaAssociacao.Anotacoes = "";
+                novaAssociacao.DataInicio = DateTime.Now;
+
                 //Cadastra nova associação no banco de dados
                 ctx.Minhasatividades.Add(novaAssociacao);
                 ctx.SaveChanges();
@@ -104,7 +106,7 @@ namespace SenaiRH_G1.Repositories
                                        {
                                            IdAtividade = atividades.IdAtividade,
                                            NomeAtividade = atividades.NomeAtividade,
-                                           DataInicio = atividades.DataInicio,
+                                           DataInicio = minhasAtividades.DataInicio,
                                            DataCriacao = atividades.DataCadastro,
                                            DataConclusao = minhasAtividades.DataConclusao,
                                            DescricaoAtividade = atividades.DescricaoAtividade,
