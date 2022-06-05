@@ -205,6 +205,7 @@ namespace SenaiRH_G1.Repositories
         {
             var listaMinhasAtividade = from atividades in ctx.Atividades
                                        join minhasAtividades in ctx.Minhasatividades on atividades.IdAtividade equals minhasAtividades.IdAtividade
+                                       join usuarios in ctx.Usuarios on minhasAtividades.IdUsuario equals usuarios.IdUsuario
                                        where minhasAtividades.IdSituacaoAtividade == 2
                                        select new MinhasAtividadesViewModel
                                        {
@@ -220,7 +221,8 @@ namespace SenaiRH_G1.Repositories
                                            IdMinhasAtividades = minhasAtividades.IdMinhasAtividades,
                                            IdUsuario = minhasAtividades.IdUsuario,
                                            IdSituacaoAtividade = minhasAtividades.IdSituacaoAtividade,
-                                           Anotacoes = minhasAtividades.Anotacoes
+                                           Anotacoes = minhasAtividades.Anotacoes,
+                                           NomeFuncionario = usuarios.Nome
                                        };
 
 
