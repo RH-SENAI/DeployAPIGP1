@@ -182,6 +182,7 @@ namespace SenaiRH_G1.Repositories
 
         public List<Atividade> ListarTodas()
         {
+
             return ctx.Atividades
                 .Select(a => new Atividade()
                 {
@@ -195,13 +196,16 @@ namespace SenaiRH_G1.Repositories
                     NecessarioValidar = a.NecessarioValidar,
                     DataCadastro = a.DataCadastro,
                     Obrigatorio = a.Obrigatorio,
+                    IdGestorCadastro = a.IdGestorCadastroNavigation.IdUsuario,
                     IdGestorCadastroNavigation = new Usuario()
                     {
-                        Nome = a.IdGestorCadastroNavigation.Nome
+                        Nome = a.IdGestorCadastroNavigation.Nome,
+                        IdUsuario = a.IdGestorCadastroNavigation.IdUsuario
                     }
                 })
                 .ToList();
         }
+
 
         public List<MinhasAtividadesViewModel> ListaValidar()
         {

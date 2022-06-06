@@ -35,6 +35,7 @@ namespace SenaiRH_G1.Controllers
         [HttpGet]
         public IActionResult GetAtividades()
         {
+            
             try
             {
                 List<Atividade> listaAtividade = _atividadeRepository.ListarTodas();

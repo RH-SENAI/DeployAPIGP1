@@ -69,10 +69,10 @@ namespace SenaiRH_G1.Repositories
                     }
                 }).ToList();*/
 
-            var listaFuncionarios = from usuario in ctx.Usuarios                                     
+               var listaFuncionarios = from usuario in ctx.Usuarios                                     
                                        join lotacaos in ctx.Lotacaos on usuario.IdUsuario equals lotacaos.IdFuncionario
                                        join grupos  in ctx.Grupos on lotacaos.IdGrupo equals grupos.IdGrupo
-                                        where grupos.IdGestor == idGestor
+                                       where grupos.IdGestor == idGestor
                                        select new FuncionariosViewModel
                                        {
                                            IdUsuario = usuario.IdUsuario,
@@ -206,7 +206,7 @@ namespace SenaiRH_G1.Repositories
                 message.Subject = "Teste email";
                 message.Body = new TextPart("plain")
                 {
-                    Text = @"Seu código de recuperar senha é: " + code
+                    Text = @"Seu código de recuperação de senha é: " + code
                 };
 
                 SmtpClient client = new SmtpClient();
@@ -244,29 +244,31 @@ namespace SenaiRH_G1.Repositories
             return false;
         }
 
-        public List<Usuario> Ranking()
+        public List<FuncionariosViewModel> Ranking(int idGestor)
         {
-            return ctx.Usuarios
-                //IdTipoUsuario seja igual ao de funcionario
-                .Where(u => u.IdTipoUsuario == 1)
-                .OrderByDescending(u => u.Trofeus)
-                //Seleciona os dados que serao enviados na resposta
-                .Select(u => new Usuario()
-                {
-                    IdUsuario = u.IdUsuario,
-                    Nome = u.Nome,
-                    Email = u.Email,
-                    DataNascimento = u.DataNascimento,
-                    SaldoMoeda = u.SaldoMoeda,
-                    Trofeus = u.Trofeus,
-                    IdUnidadeSenai = u.IdUnidadeSenai,
-                    IdUnidadeSenaiNavigation = new Unidadesenai()
-                    {
-                        NomeUnidadeSenai = u.IdUnidadeSenaiNavigation.NomeUnidadeSenai,
-                        TelefoneUnidadeSenai = u.IdUnidadeSenaiNavigation.TelefoneUnidadeSenai,
-                        EmailUnidadeSenai = u.IdUnidadeSenaiNavigation.EmailUnidadeSenai
-                    }
-                }).ToList();
+             
+
+            var listaFuncionarios = from usuario in ctx.Usuarios
+                                    join lotacaos in ctx.Lotacaos on usuario.IdUsuario equals lotacaos.IdFuncionario
+                                    join grupos in ctx.Grupos on lotacaos.IdGrupo equals grupos.IdGrupo
+                                    where grupos.IdGestor == idGestor
+                                    orderby usuario.Trofeus descending
+                                    select new FuncionariosViewModel
+                                    {
+                                        IdUsuario = usuario.IdUsuario,
+                                        Nome = usuario.Nome,
+                                        Latitude = usuario.Latitude,
+                                        Longitude = usuario.Longitude,
+                                        Cpf = usuario.Cpf,
+                                        Email = usuario.Email,
+                                        DataNascimento = usuario.DataNascimento,
+                                        SaldoMoeda = usuario.SaldoMoeda,
+                                        Trofeus = usuario.Trofeus,
+                                        CaminhoFotoPerfil = usuario.CaminhoFotoPerfil
+
+                                    };
+
+            return listaFuncionarios.ToList();
         }
     }
 }

@@ -251,12 +251,12 @@ namespace SenaiRH_G1.Controllers
                 throw;
             }
         }
-        [HttpGet("Ranking")]
-        public IActionResult Ranking()
+        [HttpGet("Ranking/{idGestor}")]
+        public IActionResult Ranking(int idGestor)
         {
             try
             {
-                return Ok(_usuarioRepository.Ranking());
+                return Ok(_usuarioRepository.Ranking(idGestor));
 
             }
             catch (Exception ex)
