@@ -270,5 +270,31 @@ namespace SenaiRH_G1.Repositories
 
             return listaFuncionarios.ToList();
         }
+
+        public List<FuncionariosViewModel> RankingMobile()
+        {
+
+
+            var listaFuncionarios = from usuario in ctx.Usuarios
+                                    join lotacaos in ctx.Lotacaos on usuario.IdUsuario equals lotacaos.IdFuncionario
+                                    join grupos in ctx.Grupos on lotacaos.IdGrupo equals grupos.IdGrupo
+                                    orderby usuario.Trofeus descending
+                                    select new FuncionariosViewModel
+                                    {
+                                        IdUsuario = usuario.IdUsuario,
+                                        Nome = usuario.Nome,
+                                        Latitude = usuario.Latitude,
+                                        Longitude = usuario.Longitude,
+                                        Cpf = usuario.Cpf,
+                                        Email = usuario.Email,
+                                        DataNascimento = usuario.DataNascimento,
+                                        SaldoMoeda = usuario.SaldoMoeda,
+                                        Trofeus = usuario.Trofeus,
+                                        CaminhoFotoPerfil = usuario.CaminhoFotoPerfil
+
+                                    };
+
+            return listaFuncionarios.ToList();
+        }
     }
 }
